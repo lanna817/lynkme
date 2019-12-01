@@ -13,9 +13,9 @@ I expect to have some issues with the search feature as I would like to connnect
 
 ###### MVP/Post MVP
 
-MVP would be allowing a user to sign in and create a profile as well as update, delete, and create their own post. Creating a system where a user can click a link to connect with a user.
+**MVP** would be allowing a user to sign in and create a profile as well as update, delete, and create their own post. Creating a system where a user can click a link to connect with a user.
 
-Post MVP would be to implement an anonymous feature where a user can post anonymously and a few animations for the card feature of the website. 
+**Post MVP** would be to implement an anonymous feature where a user can post anonymously and a few animations for the card feature of the website. 
 
 ---
 
