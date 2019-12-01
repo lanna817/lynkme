@@ -54,7 +54,6 @@ Google Maps.
 
 ## Timeframes
 
-Component	Priority	Estimated Time	Time Invested	Actual Time
 Adding Form 	H	       3hrs	
 API/backend	  H	       5hrs	
 Total	        H	       6hrs	
