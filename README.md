@@ -37,16 +37,16 @@ Post MVP would be to implement an anonymous feature where a user can post anonym
 
 ## API Endpoints
 
-'/users' - A list of all Users 
-'/user/:id' - Find a particular User.
-/posts - This will display all the post for a paticular category or on the homepage as an update.
-/post/:id
-/post/:id/comments - This will display the comments for a particular post if this is implemented.
-/posts/connection - List of all connection post.
-/arts - List of all artwork.
-/art/sale - User can sell their art.
-/art/:id - Find particular artwork.
-/music/gigs - Book music gigs.
+'/users' : A list of all Users 
+'/user/:id' : Find a particular User.
+'/posts' : This will display all the post for a paticular category or on the homepage as an update.
+'/post/:id' :
+'/post/:id/comments' : This will display the comments for a particular post if this is implemented.
+'/posts/connection' : List of all connection post.
+'/arts' : List of all artwork.
+'/art/sale' : User can sell their art.
+'/art/:id' : Find particular artwork.
+'/music/gigs' : Book music gigs.
 
 ## Dependencies
 
