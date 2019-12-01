@@ -54,9 +54,9 @@ Google Maps.
 
 ## Timeframes
 
-Adding Form 	H	       3hrs	
-API/backend	  H	       5hrs	
-Total	        H	       6hrs	
+- [] Adding Form 1.5hr
+- [] API/backend 5hrs	
+- [] MVP Front-end
 
 
 
