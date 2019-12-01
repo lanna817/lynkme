@@ -34,10 +34,11 @@ I expect to have some issues with the search feature as I would like to connnect
 
 ## Wireframes 
 
-![Web 1920 – 1](https://user-images.githubusercontent.com/55125468/69912932-c838ad80-13fe-11ea-9fa9-1f39620813cd.png)
-![Web 1920 – 2](https://user-images.githubusercontent.com/55125468/69912935-cb339e00-13fe-11ea-91a7-a753ee4b2b57.png)
-![Web 1920 – 3](https://user-images.githubusercontent.com/55125468/69912936-cd95f800-13fe-11ea-96d6-97b1245f7a9c.png)
-![Web 1920 – 4](https://user-images.githubusercontent.com/55125468/69912938-d1297f00-13fe-11ea-8b13-cbc965e9264d.png)
+![Home](https://user-images.githubusercontent.com/55125468/69918495-a2cc9380-1440-11ea-939a-474d5b8a5238.jpg)
+![Art](https://user-images.githubusercontent.com/55125468/69918497-a829de00-1440-11ea-8fc7-d9cfb1704f52.jpg)
+![Connection](https://user-images.githubusercontent.com/55125468/69918499-ac55fb80-1440-11ea-8125-fea1fe9e17e4.jpg)
+![Gigs-Events](https://user-images.githubusercontent.com/55125468/69918500-afe98280-1440-11ea-83a2-869a93250959.jpg)
+![Profile](https://user-images.githubusercontent.com/55125468/69918502-b2e47300-1440-11ea-9b3d-c02f95ce820d.jpg)
 
 
 ## API Endpoints
