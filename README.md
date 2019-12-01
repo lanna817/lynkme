@@ -37,8 +37,8 @@ Post MVP would be to implement an anonymous feature where a user can post anonym
 
 ## API Endpoints
 
-/users - A list of all Users 
-/user/:id - Find a particular User.
+'/users' - A list of all Users 
+'/user/:id' - Find a particular User.
 /posts - This will display all the post for a paticular category or on the homepage as an update.
 /post/:id
 /post/:id/comments - This will display the comments for a particular post if this is implemented.
@@ -54,9 +54,9 @@ Google Maps.
 
 ## Timeframes
 
-- [] Adding Form 1.5hr
-- [] API/backend 5hrs	
-- [] MVP Front-end
+- [ ] Adding Form 1.5hr
+- [ ] API/backend 5hrs	
+- [ ] MVP Front-end
 
 
 
