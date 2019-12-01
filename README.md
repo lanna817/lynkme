@@ -29,7 +29,8 @@ Post MVP would be to implement an anonymous feature where a user can post anonym
 
 ##  ERD
 
-![LynkMe](https://user-images.githubusercontent.com/55125468/69911555-088e3080-13eb-11ea-9d00-297824e453db.png)
+![LynkMe (1)](https://user-images.githubusercontent.com/55125468/69911570-425f3700-13eb-11ea-8e38-ec59c7f042f7.png)
+
 
 ## Wireframes 
 
