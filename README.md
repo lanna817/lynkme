@@ -34,6 +34,10 @@ I expect to have some issues with the search feature as I would like to connnect
 
 ## Wireframes 
 
+![Web 1920 – 1](https://user-images.githubusercontent.com/55125468/69912932-c838ad80-13fe-11ea-9fa9-1f39620813cd.png)
+![Web 1920 – 2](https://user-images.githubusercontent.com/55125468/69912935-cb339e00-13fe-11ea-91a7-a753ee4b2b57.png)
+![Web 1920 – 3](https://user-images.githubusercontent.com/55125468/69912936-cd95f800-13fe-11ea-96d6-97b1245f7a9c.png)
+![Web 1920 – 4](https://user-images.githubusercontent.com/55125468/69912938-d1297f00-13fe-11ea-8b13-cbc965e9264d.png)
 
 
 ## API Endpoints
