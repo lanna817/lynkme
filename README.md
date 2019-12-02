@@ -1,4 +1,4 @@
-# lynkme
+# Lynkme
 
 ## Description
 
