@@ -12,13 +12,12 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @user = User.find(params[:id])
-    render json: @user
+    render json: @user, include: :posts, status: :ok
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
-​
     if @user.save
       @token = encode({user_id: @user.id, username: @user.username});
       render json: {user: @user, token: @token}, status: :created, location: @user
