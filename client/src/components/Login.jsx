@@ -6,8 +6,8 @@ import logo from '../images/lynk_logo.png';
 const Login = (props) => {
 
   return (
-    <div className="login/reg-pg">
-      <img src={logo} width='60%' id='login-logo' alt='logo' />
+    <div className="login-pg">
+      <img src={logo} width='40%' id='login-logo' alt='logo' />
       <h3 id='log-heading'>Log in or Register Below</h3>
 
       <form id='login-form' onSubmit={(e) => {

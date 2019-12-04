@@ -20,12 +20,15 @@ nav{
   margin-left: -0.5em;
 }
 
+/* ===========Login/Register Page=========== */
+
 #register-btn{
   color: yellow;
 }
 
 #login-logo{
-  margin-left: 20%;
+  margin-left: 30%;
+ 
 }
 
 #login-form{
@@ -33,25 +36,101 @@ nav{
   color: white;
   width: 40%;
   margin: 0 auto;
-  padding: 7%;
+  padding: 2%;
+  margin-bottom:7%;
 
 }
 
-#log-heading{
+#reg-form{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 35%;
+  margin: 0 auto;
+  padding: 2%;
+  margin-bottom:7%;
+}
+
+
+#log-heading,#reg-heading{
   text-align:center;
 }
 
+#reg-heading{
+  margin:0;
+  color:white;
+  padding: 1%;
+}
+
 input[type=text], input[type=password] {
-  margin: 1em;
+  margin: 2em;
+  padding:2% 10%;
 }
 
-label[for=username],[for=password] {
-  font-size: 1em;
-  margin: 0.70em;
+input[type=text]:hover, input[type=password]:hover{
+  border: 1px solid #9824A8;
 }
 
-#login-btn, #reg-btn {
-  margin-right: 2em;
+label[for=username],[for=password], [for=email]  {
+  font-size: 0.8em;
+  margin: 1.5em;
+}
+
+#register-btn{
+  color:black;
+  border: 1px solid #9824A8;
+}
+
+#login-btn,#reg-btn {
+  margin-left: 2.5em;
+  border: 1px solid #9824A8;
+}
+
+#register-btn:hover{
+  background-color:#9824A8;
+  color:white;
+}
+
+#login-btn:hover {
+  background-color:#9824A8;
+  color:white;
 }
 
 
+#reg-btn:hover{
+  background-color:#9824A8;
+  color:white;
+}
+
+.reg-pg{
+  background-image: url('./images/reg-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 150vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============Media Queries================ */
+
+@media screen and (max-width: 600px) {
+  input[type=text], input[type=password]{
+    width: 50%;
+    margin-top: 0;
+  }
+}
