@@ -29,3 +29,38 @@ export const verifyUser = async () => {
   }
   return false
 }
+
+
+// =========================CRUD POST===================================
+
+export const createPost = async (data) => {
+  const resp = await api.post('/posts', { post: data })
+  return resp.data
+}
+
+export const getOnePost = async (id) => {
+  const resp = await api.get(`/posts/${id}`)
+  return resp.data
+}
+
+export const getAllPosts = async () => {
+  const resp = await api.get('/posts')
+  return resp.data
+}
+
+export const updatePost = async (id, data) => {
+  const resp = await api.put(`/posts/${id}`, { post: data })
+  return resp.data
+}
+
+export const getUserPosts = async (user_id) => {
+  const resp = await api.get(`/users/${user_id}/posts`) 
+}
+
+export const destroyPost = async (id) => {
+  const resp = await api.delete(`/posts/${id}`)
+  return resp.data
+}
+
+
+
