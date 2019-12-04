@@ -27,7 +27,7 @@ export default function Home(props) {
             <button onClick={props.handleLogout}>logout</button>
           </>
           :
-          <div></div>
+          <div><h1>You need to log in to do that</h1></div>
         } 
 
       </div>

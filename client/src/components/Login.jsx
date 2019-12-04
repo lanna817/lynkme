@@ -1,24 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../images/lynk_logo.png';
 
 
 const Login = (props) => {
 
   return (
-    <div className="auth-container">
-      <h2>Login or Click the Register button below</h2>
-      <hr />
-      <form onSubmit={(e) => {
+    <div className="login/reg-pg">
+      <img src={logo} width='60%' id='login-logo' alt='logo' />
+      <h3 id='log-heading'>Log in or Register Below</h3>
+
+      <form id='login-form' onSubmit={(e) => {
         e.preventDefault();
         props.handleLogin();
       }} >
-        <p>Username:</p>
-        <input name="username" type="text" value={props.formData.username} onChange={props.handleChange} />
-        <p>Password:</p>
+        <label htmlFor="username">Username</label>
+        <input name="username"
+          type="text"
+          value={props.formData.username}
+          onChange={props.handleChange} />
+        
+        <label htmlFor="password">Password</label>
         <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
         <hr />
-        <button>Login</button>
-        <Link to="/register">Register</Link>
+        <button id='login-btn'>Login</button>
+        <Link to="/register">
+          <button id='reg-btn'>Register</button></Link>
       </form>
     </div>
   );

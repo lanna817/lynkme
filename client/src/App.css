@@ -8,6 +8,7 @@ header {
 }
 
 nav{
+  color:black;
   display: flex;
   font-size: 0.6em;
   justify-content: space-between;
@@ -19,8 +20,38 @@ nav{
   margin-left: -0.5em;
 }
 
-.auth-container{
-  background-color:lightcoral;
-  width: 50%;
+#register-btn{
+  color: yellow;
 }
+
+#login-logo{
+  margin-left: 20%;
+}
+
+#login-form{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 40%;
+  margin: 0 auto;
+  padding: 7%;
+
+}
+
+#log-heading{
+  text-align:center;
+}
+
+input[type=text], input[type=password] {
+  margin: 1em;
+}
+
+label[for=username],[for=password] {
+  font-size: 1em;
+  margin: 0.70em;
+}
+
+#login-btn, #reg-btn {
+  margin-right: 2em;
+}
+
 
