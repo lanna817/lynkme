@@ -6,7 +6,7 @@ const Login = (props) => {
 
   return (
     <div className="auth-container">
-      <h2>login</h2>
+      <h2>Login or Click the Register button below</h2>
       <hr />
       <form onSubmit={(e) => {
         e.preventDefault();

@@ -35,13 +35,15 @@ class App extends React.Component {
 
   // ==================================AUTH=====================
 
-  handleLoginButton = () => {
-    this.props.history.push("/login")
-  }
+  // handleLoginButton = () => {
+  //   this.props.history.push("/")
+  // }
 
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.authFormData);
     this.setState({ currentUser });
+    this.props.history.push("/home")
+
   }
 
   handleRegister = async (e) => {
@@ -51,10 +53,11 @@ class App extends React.Component {
   }
 
   handleLogout = () => {
-    localStorage.removeItem("jwt");
     this.setState({
       currentUser: null
     })
+    localStorage.removeItem("authToken");
+    this.props.history.push('/');
   }
 
   authHandleChange = (e) => {
@@ -71,16 +74,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-
-        
-         <Route exact path="/" render={() => (
-        <Home
-          handleLoginButton={this.handleLoginButton}
-          handleLogout={this.handleLogout}
-          currentUser={this.state.currentUser} />)}
-        /> 
-        <Route exact path="/login" render={() => (
+      <div className="app">    
+       {
+          this.state.currentUser ?
+          <Route exact path="/home" render={() => (
+            <Home
+              handleLoginButton={this.handleLoginButton}
+              handleLogout={this.handleLogout}
+              currentUser={this.state.currentUser} />)}
+            />  : <div></div>
+        }  
+   
+      
+       
+        <Route exact path="/" render={() => (
           <Login
             handleLogin={this.handleLogin}
             handleChange={this.authHandleChange}

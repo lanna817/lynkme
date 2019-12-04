@@ -4,13 +4,22 @@ import logo from '../images/lynk_logo.png';
 
 
 
+
 export default function Home(props) {
   return (
+      <>
     <header>
-      <img src={logo} alt='lynk-me logo' width='11%' height='auto' />
-      <div>
-
-        <h1>Welcome to LinkMe</h1>
+        <nav>
+        <img src={logo} alt='lynk-me logo' width='13%' height='auto' id='img-logo'/>
+          <a href='#'>Home</a>
+          <a href='#'>Art</a>
+          <a href='#'>Connections</a>
+          <a href='#'>Gigs/Events</a>
+          <a href='#'>About</a>
+          <a href='#'>Profile</a>
+      </nav>
+    </header>
+      <div className ='home'>
       {props.currentUser
           ?
           <>
@@ -18,12 +27,11 @@ export default function Home(props) {
             <button onClick={props.handleLogout}>logout</button>
           </>
           :
-          <button onClick={props.handleLoginButton}>Login/register</button>
+          <div></div>
         } 
 
       </div>
-
-   </header> 
+      </>
 
   )
 
