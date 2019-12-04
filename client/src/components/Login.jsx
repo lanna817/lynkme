@@ -14,13 +14,13 @@ const Login = (props) => {
         e.preventDefault();
         props.handleLogin();
       }} >
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Username:</label>
         <input name="username"
           type="text"
           value={props.formData.username}
           onChange={props.handleChange} />
         
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password:</label>
         <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
         <hr />
         <button id='login-btn'>Login</button>

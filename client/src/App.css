@@ -34,7 +34,7 @@ nav{
 #login-form{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 40%;
+  width: 35%;
   margin: 0 auto;
   padding: 2%;
   margin-bottom:7%;
@@ -99,6 +99,14 @@ label[for=username],[for=password], [for=email]  {
 #reg-btn:hover{
   background-color:#9824A8;
   color:white;
+}
+
+.login-pg{
+  background-image: url('./images/wall.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 150vh;
+
 }
 
 .reg-pg{
