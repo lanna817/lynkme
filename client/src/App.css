@@ -16,6 +16,10 @@ nav{
  
 }
 
+nav a:hover{
+  color: #9824A8;
+}
+
 #img-logo{
   margin-left: -0.5em;
 }
@@ -116,8 +120,35 @@ label[for=username],[for=password], [for=email]  {
   height: 150vh;
 }
 
+/* ===============Home===================== */
+#wel-user{
+  font-size: 0.7em;
+  width: 30%;
+  color: grey;
+}
 
+#logout-btn{
+  display: inline-block;
+  border: 0.5px solid #9824A8;
+  margin-left: 2%;
+  cursor: pointer;
+  color: grey;
+  font-size: 0.5em;
 
+}
+
+#logout-btn:hover{
+  background-color:#9824A8;
+  color:white;
+}
+
+#late-post{
+  text-align: center;
+  margin-top: 0;
+  display: inline-block;
+  margin-left: 30%;
+
+}
 
 
 
