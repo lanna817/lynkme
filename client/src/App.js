@@ -82,22 +82,6 @@ class App extends React.Component {
   }
 
 
-  // setEdit = (postData) => {
-  //   const { content, image_url, hashtags, category, is_Anon } = postData;
-  //   this.setState({
-  //     postForm: {
-  //       content,
-  //       image_url,
-  //       hashtags,
-  //       category,
-  //       is_Anon
-  //     }
-  //   })
-  //   this.props.history.push(`posts/${postData.id}/edit`)
-    // this.props.history.push(`users/${user_id}/posts/:id/${postData}/edit`)
-  // }
-
-
   deletePost = async (id) => {
     await destroyPost(id);
     this.setState(prevState => ({

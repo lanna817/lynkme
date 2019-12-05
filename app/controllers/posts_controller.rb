@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if @post.user == @current_user
+    if @post.user ==  @current_user
       if @post.update(post_params)
         render json: @post
       else
@@ -59,6 +59,8 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { message: 'no posts matches that ID' }, status: 404
     end
 
     # Only allow a trusted parameter "white list" through.
