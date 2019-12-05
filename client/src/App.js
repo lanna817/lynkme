@@ -113,6 +113,19 @@ class App extends React.Component {
   }
 
 
+  // resetForm =  () => {
+  //   this.setState({
+  //     postForm: {
+  //       content: "",
+  //       image_url: "",
+  //       hashtags: "",
+  //       category: "",
+  //       is_Anon: false
+  //     }
+  //   })
+  // }
+
+
   // ==================================AUTH=====================
 
 
