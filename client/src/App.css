@@ -150,6 +150,26 @@ label[for=username],[for=password], [for=email]  {
 
 }
 
+.form-cont{
+  display:flex;
+  justify-content: flex-end;
+}
+
+
+#create-post {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 30%;
+  padding: 2%;
+  margin-bottom:7%;
+}
+
+.post-list {
+  border: 2px solid black;
+  width: 60%;
+  height:100vh;
+  margin-left: 8%;
+}
 
 
 

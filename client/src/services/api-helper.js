@@ -49,12 +49,18 @@ export const getAllPosts = async () => {
 }
 
 export const updatePost = async (id, data) => {
-  const resp = await api.put(`/posts/${id}`, { post: data })
+  const resp = await api.put(`/posts/${id}`, data);
   return resp.data
 }
 
+// export const postData = async (data) => {
+//   const resp = await api.post('/posts', data)
+//   return resp.data
+// } 
+
 export const getUserPosts = async (user_id) => {
   const resp = await api.get(`/users/${user_id}/posts`) 
+  return resp.data
 }
 
 export const destroyPost = async (id) => {

@@ -31,15 +31,20 @@ class PostsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /posts/1
   def update
     if @post.user == @current_user
-    if @post.update(post_params)
-      render json: @post
+      if @post.update(post_params)
+        render json: @post
+      else
+        render json: @post.errors, status: :unprocessable_entity
+      end
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: { errors: "not authorized" }, status: :unauthorized
     end
   end
+  
 
   # DELETE /posts/1
   def destroy
@@ -58,6 +63,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:content, :image_url, :hashtags, :category, :is_Anon, :user)
+      params.require(:post).permit(:content, :image_url, :hashtags, :category, :is_Anon, :user_id)
     end
 end

@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import CreatePosts from './components/CreatePosts';
 import Home from './components/Home';
+import PostEdit from './components/PostEdit';
+import PostPage from './components/PostPage';
 import {
   loginUser,
   registerUser,
@@ -26,7 +28,7 @@ class App extends React.Component {
       postForm: {
         content: "",
         image_url: "",
-        hashtages: "",
+        hashtags: "",
         category: "",
         is_Anon: false
       },
@@ -37,51 +39,47 @@ class App extends React.Component {
         password: ''
 
       }
-    };  
+    };
   }
   async componentDidMount() {
     const currentUser = await verifyUser();
-    // this.getAllPosts();
+    this.getAllPosts();
     if (currentUser) {
       this.setState({ currentUser })
     }
-  } 
+  }
 
-  // getAllPosts = async () => {
-  //   const posts = await getAllPosts();
-  //   this.setState({
-  //     posts
-  //   })
+  getAllPosts = async () => {
+    const posts = await getAllPosts();
+    this.setState({
+      posts
+    })
+  }
+
+  // editPost = async () => {
+  //   const { postForm } = this.state
+  //   await updatePost(postForm.id, postForm);
+  //   this.setState(prevState => (
+  //     {
+  //       posts: prevState.posts.map(post => {
+  //         return post.id === post.id ? postForm : post
+  //       })
+  //     }
+
+  //   ))
+  //   this.props.history.push(`/home`)
   // }
 
-  newPost = async (e) => {
-    e.preventDefault();
-    const post = await createPost(this.state.postForm);
+  editSubmit = async (id) => {
+    const updatePost = await updatePost(id, this.state.postForm);
     this.setState(prevState => ({
-      posts: [...prevState.posts, post],
-      postForm: {
-        content: "",
-        image_url: "",
-        hashtages: "",
-        category: "",
-        is_Anon: false
-      }
+      posts: prevState.posts.map(post => {
+        return post.id === parseInt(id) ? updatePost : post
+      })
     }))
+    this.props.history.push(`/posts/${id}`)
   }
 
-  editPost = async () => {
-    const { postForm } = this.state
-    await createPost(postForm.id, postForm);
-    this.setState(prevState => (
-      {
-        posts: prevState.posts.map(post => {
-          return post.id === post.id ? postForm : post
-        })
-      }
-
-    ))
-    this.props.history.push(`/posts`)
-  }
 
   setEdit = (postData) => {
     const { content, image_url, hashtags, category, is_Anon } = postData
@@ -95,45 +93,44 @@ class App extends React.Component {
       }
     })
     this.props.history.push(`posts/${postData}/edit`)
-      // this.props.history.push(`users/${user_id}/posts/:id/${postData}/edit`)
+    // this.props.history.push(`users/${user_id}/posts/:id/${postData}/edit`)
   }
 
 
   deletePost = async (id) => {
     await destroyPost(id);
     this.setState(prevState => ({
-      posts: prevState.posts.filter(post => post.id !==id)
+      posts: prevState.posts.filter(post => post.id !== id)
     }))
+    this.props.history.push(`/home`)
   }
 
 
   handleFormChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
-      teacherForm: {
-        ...prevState.teacherForm,
+      postForm: {
+        ...prevState.postForm,
         [name]: value
       }
     }))
   }
 
   createSubmit = async () => {
-    const newPost = await updatePost(this.state.postForm);
+    const newPost = await createPost(this.state.postForm);
     this.setState(prevState => ({
       posts: [
         ...prevState.posts,
         newPost
       ]
     }));
-    this.props.history.push(`/dogs`)
+    this.props.history.push(`/home`)
+
   }
 
 
   // ==================================AUTH=====================
 
-  // handleLoginButton = () => {
-  //   this.props.history.push("/")
-  // }
 
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.authFormData);
@@ -172,19 +169,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">    
-       {
+      <div className="app">
+        {
           this.state.currentUser ?
-          <Route exact path="/home" render={() => (
-            <Home
-              handleLoginButton={this.handleLoginButton}
-              handleLogout={this.handleLogout}
-              currentUser={this.state.currentUser} />)}
-            />  : <div></div>
-        }  
-   
-      
-       
+            <Route exact path="/home" render={() => (
+              <Home
+                handleLogout={this.handleLogout}
+                currentUser={this.state.currentUser}
+                postForm={this.state.postForm}
+                posts={this.state.posts}
+                handleFormChange={this.handleFormChange}
+                createSubmit={this.createSubmit}
+                getAllPosts={this.getAllPosts}
+              />)} />
+
+            : <div></div>
+        }
+    
+
+
+
         <Route exact path="/" render={() => (
           <Login
             handleLogin={this.handleLogin}
@@ -197,13 +201,33 @@ class App extends React.Component {
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)}
         />
-        <Route exact path="/posts" render={() => (
-        <CreatePosts
-      />)}
-        />
-   
+
+        <Route path='/posts/:id' render={(props) => {
+          const postId = props.match.params.id;
+          const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
+          // {
+          //   this.state.currentUser
+          // }
+          return <PostPage
+            setEdit={this.setEdit}
+            deletePost={this.deletePost}
+            currentPost={currentPost} />
+
+          
+        }} />
+
+
+        <Route path='/posts/:id/edit' render={(props) => {
+          const postId = props.match.params.id;
+          return <PostEdit
+            postId={postId}
+            postForm={this.state.postForm}
+            handleFormChange={this.handleFormChange}
+            editSubmit={this.editSubmit} />
+        }} />
+
       </div>
     );
   }
 }
-export default withRouter (App);
+export default withRouter(App);
