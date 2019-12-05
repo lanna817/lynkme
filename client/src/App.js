@@ -1,24 +1,23 @@
 import React from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Login from './components/Login';
 import Register from './components/Register';
-import CreatePosts from './components/CreatePosts';
 import Home from './components/Home';
 import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
-import PostList from './components/PostList';
+
 import {
   loginUser,
   registerUser,
   verifyUser,
   getAllPosts,
-  getOnePost,
-  getUserPosts,
   createPost,
   destroyPost,
-  updatePost
+  updatePost,
+  getAllComments,
+  createComment
 } from './services/api-helper';
 
 class App extends React.Component {
@@ -39,12 +38,19 @@ class App extends React.Component {
         email: '',
         password: ''
 
+      },
+      comments:[],
+      commentBox: {
+        content: '',
+        user_id: '',
+        post_id: ''
       }
     };
   }
   async componentDidMount() {
     const currentUser = await verifyUser();
     this.getAllPosts();
+    this.getAllComments();
     if (currentUser) {
       this.setState({ currentUser })
     }
@@ -60,7 +66,7 @@ class App extends React.Component {
   setEdit = (data) => {
     const { content, image_url, hashtags, category } = data;
     this.setState({
-      formData: {
+      postForm: {
         content,
         image_url,
         hashtags,
@@ -71,7 +77,7 @@ class App extends React.Component {
   }
 
   editSubmit = async (id) => {
-    const updatedForm =  await updatePost(id, this.state.postForm);
+    const updatedForm = await updatePost(id, this.state.postForm);
     this.setState(prevState => ({
       posts: prevState.posts.map(post => {
         return post.id === parseInt(id) ? updatedForm : post
@@ -125,6 +131,39 @@ class App extends React.Component {
   //   })
   // }
 
+  // =====================Comments=================================
+
+  getAllComments = async () => {
+    const comments = await getAllComments();
+    this.setState({
+     comments
+    })
+  }
+
+
+  handleCommentChange = async (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      commentBox: {
+        ...prevState.commentBox,
+        [name]: value
+      }
+    }))
+  }
+
+
+
+  handleCommentSubmit = async (id) => {
+    const newComment = await createComment(this.state.posts.id,this.state.commentBox);
+    this.setState(prevState => ({
+      comments: [
+        ...prevState.comments,
+        newComment
+      ]
+    }));
+    // this.props.history.push(`/posts/${id}`)
+
+  }
 
   // ==================================AUTH=====================
 
@@ -182,7 +221,7 @@ class App extends React.Component {
 
             : <div></div>
         }
-    
+
 
 
 
@@ -202,14 +241,16 @@ class App extends React.Component {
         <Route path='/posts/:id' render={(props) => {
           const postId = props.match.params.id;
           const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
-          // {
-          //   this.state.currentUser
-          // }
           return <PostPage
-            
+
             setEdit={this.setEdit}
             deletePost={this.deletePost}
-            currentPost={currentPost} />
+            currentPost={currentPost}
+            handleCommentChange={this.handleCommentChange}
+            handleCommentSubmit={this.handleCommentSubmit}
+            commentBox={this.state.commentBox }
+
+          />
         }} />
 
 

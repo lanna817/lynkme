@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Comment from './Comment';
+
 
 
 export default function PostPage(props) {
@@ -6,7 +9,7 @@ export default function PostPage(props) {
   
   
   return (
-    <div>
+    <div className='single-post'>
       {
         currentPost && (
           <>
@@ -21,9 +24,22 @@ export default function PostPage(props) {
             <button onClick={() => {
               props.setEdit(currentPost);
             }}>Edit</button>
+     
+              {/* <button>Add Comment</button> */}
+         
+            {/* <p>{currentPost.cont}</p> */}
             </>
         )}
+      
+      <Comment
+       handleCommentChange={props.handleCommentChange}
+        handleCommentSubmit={props.handleCommentSubmit}
+        commentBox={props.commentBox}
+     />
+      
+      
 
+     
         
     </div>
   )

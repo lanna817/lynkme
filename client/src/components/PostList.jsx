@@ -9,8 +9,8 @@ export default function PostList(props) {
         props.posts.map(post => (
           <React.Fragment key={post.id}>
             <Link to={`/posts/${post.id}`}>
-            <h3>{post.content}</h3>
-            <img src={post.image_url} width='20%' alt='art or gig images'/>
+            <img src={post.image_url} width='30%' alt='art or gig images'/>
+            <p>{post.content}</p>
             <p>{post.hashtags}</p>
             <p>{post.category}</p>
       </Link>

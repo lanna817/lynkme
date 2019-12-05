@@ -53,13 +53,8 @@ export const updatePost = async (id, data) => {
   return resp.data
 }
 
-// export const postData = async (data) => {
-//   const resp = await api.post('/posts', data)
-//   return resp.data
-// } 
-
 export const getUserPosts = async (user_id) => {
-  const resp = await api.get(`/users/${user_id}/posts`) 
+  const resp = await api.get(`/users/${user_id}/posts`)
   return resp.data
 }
 
@@ -69,4 +64,16 @@ export const destroyPost = async (id) => {
 }
 
 
+// ================CRUD Comments=====================================
+
+export const createComment = async (id, data) => {
+  debugger;
+  const resp = await api.post(`/posts/${id}/comments`, data)
+  return resp.data
+}
+
+export const getAllComments = async (id) => {
+  const resp = await api.get(`/posts/${id}/comments`)
+  return resp.data
+}
 

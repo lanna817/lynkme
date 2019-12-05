@@ -3,16 +3,19 @@ class CommentsController < ApplicationController
   before_action :authorize_request, except: %i[index show]
   # GET /comments
   def index
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
     @comments = Comment.where(post_id: @post.id)
-    render json: @comments, include: :user, status: :ok
+    # @comments = Comment.where(user_id: @user.id)
+    render json: @comments, include:{post: {include: :user}}, 
+    
+    status: :ok
     
   end
 
   # GET /comments/1
   def show
-    @comment = Comment.find(params[:user_id])
-    render json: @comment, include:{post: {include: :user}}, status: :ok
+    @comments = Comment.find(params[:id])
+    render json: @comments,  status: :ok
   end
 
   # POST /comments
@@ -27,22 +30,25 @@ class CommentsController < ApplicationController
   end
 
   # PATCH/PUT /comments/1
-  def update
-    if @comment.user == @current_user
-    if @comment.update(comment_params)
-      render json: @comment
-    else
-      render json: @comment.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @comment.user == @current_user
+  #   if @comment.update(comment_params)
+  #     render json: @comment
+  #   else
+  #     render json: @comment.errors, status: :unprocessable_entity
+  #   end
+  # else
+  #   render json: { errors: "not authorized" }, status: :unauthorized
+  # end
 
   # DELETE /comments/1
   def destroy
 
    if @comment.user == @current_user
-    @comment.destroy
+      @comment.destroy
    else
     render json: { errors: "not authorized" }, status: :unauthorized
+   end
   end
 
   private

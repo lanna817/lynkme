@@ -159,16 +159,31 @@ label[for=username],[for=password], [for=email]  {
 #create-post {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 30%;
+  width: 25%;
   padding: 2%;
-  margin-bottom:7%;
 }
 
 .post-list {
-  border: 2px solid black;
-  width: 60%;
-  height:100vh;
-  margin-left: 8%;
+  border: 1px solid black;
+  width: 30%;
+  margin-left: 2%;
+  padding-left: 18%;
+  height: 30vh;  
+  display:flex;
+  flex-wrap: wrap;
+}
+
+p{
+  text-align:left;
+  font-size: 0.4em;
+}
+
+
+.single-post {
+  border: 1px solid black;
+  width: 70%;
+  margin-left: 5%;
+  
 }
 
 
