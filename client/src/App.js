@@ -71,13 +71,12 @@ class App extends React.Component {
   }
 
   editSubmit = async (id) => {
-    const { postForm } = this.state
-    await updatePost(postForm.id, postForm);
+    const updatedForm =  await updatePost(id, this.state.postForm);
     this.setState(prevState => ({
       posts: prevState.posts.map(post => {
-        return post.id === postForm.id ? postForm : post
+        return post.id === parseInt(id) ? updatedForm : post
       })
-    }))
+    }));
     this.props.history.push(`/posts/${id}`)
   }
 
