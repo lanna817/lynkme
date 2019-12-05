@@ -49,7 +49,7 @@ export const getAllPosts = async () => {
 }
 
 export const updatePost = async (id, data) => {
-  const resp = await api.put(`/posts/${id}`, data);
+  const resp = await api.put(`/posts/${id}`, { posts: data });
   return resp.data
 }
 

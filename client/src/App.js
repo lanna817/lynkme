@@ -8,6 +8,7 @@ import CreatePosts from './components/CreatePosts';
 import Home from './components/Home';
 import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
+import PostList from './components/PostList';
 import {
   loginUser,
   registerUser,
@@ -56,45 +57,45 @@ class App extends React.Component {
     })
   }
 
-  // editPost = async () => {
-  //   const { postForm } = this.state
-  //   await updatePost(postForm.id, postForm);
-  //   this.setState(prevState => (
-  //     {
-  //       posts: prevState.posts.map(post => {
-  //         return post.id === post.id ? postForm : post
-  //       })
-  //     }
-
-  //   ))
-  //   this.props.history.push(`/home`)
-  // }
+  setEdit = (data) => {
+    const { content, image_url, hashtags, category } = data;
+    this.setState({
+      formData: {
+        content,
+        image_url,
+        hashtags,
+        category
+      }
+    });
+    this.props.history.push(`/posts/${data.id}/edit`);
+  }
 
   editSubmit = async (id) => {
-    const updatePost = await updatePost(id, this.state.postForm);
+    const { postForm } = this.state
+    await updatePost(postForm.id, postForm);
     this.setState(prevState => ({
       posts: prevState.posts.map(post => {
-        return post.id === parseInt(id) ? updatePost : post
+        return post.id === postForm.id ? postForm : post
       })
     }))
     this.props.history.push(`/posts/${id}`)
   }
 
 
-  setEdit = (postData) => {
-    const { content, image_url, hashtags, category, is_Anon } = postData
-    this.setState({
-      postForm: {
-        content,
-        image_url,
-        hashtags,
-        category,
-        is_Anon
-      }
-    })
-    this.props.history.push(`posts/${postData}/edit`)
+  // setEdit = (postData) => {
+  //   const { content, image_url, hashtags, category, is_Anon } = postData;
+  //   this.setState({
+  //     postForm: {
+  //       content,
+  //       image_url,
+  //       hashtags,
+  //       category,
+  //       is_Anon
+  //     }
+  //   })
+  //   this.props.history.push(`posts/${postData.id}/edit`)
     // this.props.history.push(`users/${user_id}/posts/:id/${postData}/edit`)
-  }
+  // }
 
 
   deletePost = async (id) => {
@@ -209,11 +210,10 @@ class App extends React.Component {
           //   this.state.currentUser
           // }
           return <PostPage
+            
             setEdit={this.setEdit}
             deletePost={this.deletePost}
             currentPost={currentPost} />
-
-          
         }} />
 
 
