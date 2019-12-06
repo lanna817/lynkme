@@ -10,15 +10,17 @@ header {
 nav{
   color:black;
   display: flex;
-  font-size: 0.6em;
   justify-content: space-between;
-  padding: 1em;
+  padding: 0.4em;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
  
 }
 
 nav a:hover{
   color: #9824A8;
 }
+
 
 #img-logo{
   margin-left: -0.5em;
@@ -169,18 +171,18 @@ label[for=username],[for=password], [for=email]  {
 
 }
 
-.post-list {
-  border: 0.3px solid;
-  margin-left: 2%;
-  width: 200px;
-  padding: 0.5%;
-  display:inline-block;
-  height: 100px;
-}
 
 .post-container{
   display: flex;
-  
+  width: 200px;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.post-ind {
+  padding: 0.5%;
+  border: 0.2px solid black;
+  margin-top: 5%;
 }
 
 .post-img{
@@ -188,7 +190,7 @@ label[for=username],[for=password], [for=email]  {
 }
 
 p{
-  font-size: 0.4em;
+  font-size: 0.6em;
   text-align: left;
   display: flex;
   flex-wrap: wrap;
@@ -203,9 +205,22 @@ p{
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.post-cont{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.post-hashtag{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
+
+}
+
+
 
 .single-post {
-  border: 1px solid black;
+  border: 0.5px solid black;
   width: 50%;
   margin-left: 5%;
   margin: 0 auto;
@@ -213,6 +228,8 @@ p{
   padding: 1%;
   cursor: pointer;
   text-align: center;
+  background-color: rgba(159, 168, 235, 0.3);
+
 }
 
 #post-pic{

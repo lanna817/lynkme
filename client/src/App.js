@@ -40,7 +40,7 @@ class App extends React.Component {
         password: ''
 
       },
-      comments:[],
+      comments: [],
       commentBox: {
         content: '',
         user_id: '',
@@ -134,12 +134,6 @@ class App extends React.Component {
 
   // =====================Comments=================================
 
-  getAllComments = async () => {
-    const comments = await getAllComments();
-    this.setState({
-     comments
-    })
-  }
 
 
   handleCommentChange = async (e) => {
@@ -154,8 +148,10 @@ class App extends React.Component {
 
 
 
-  handleCommentSubmit = async (id) => {
-    const newComment = await createComment(this.state.posts.id,this.state.commentBox);
+  handleCommentSubmit = async () => {
+    const postId = this.state.posts[0].id
+    const userId = this.state.currentUser.id
+    const newComment = await createComment(postId, userId, this.state.commentBox);
     this.setState(prevState => ({
       comments: [
         ...prevState.comments,
@@ -164,6 +160,13 @@ class App extends React.Component {
     }));
     // this.props.history.push(`/posts/${id}`)
 
+  }
+
+  getAllComments = async () => {
+    const comments = await getAllComments();
+    this.setState({
+      comments
+    })
   }
 
   // ==================================AUTH=====================
@@ -207,12 +210,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-          {
+        {
           this.state.currentUser ?
             <Header /> : <></>
-            
+
         }
-        
+
         {
           this.state.currentUser ?
             <Route exact path="/home" render={() => (
@@ -224,7 +227,7 @@ class App extends React.Component {
                 handleFormChange={this.handleFormChange}
                 createSubmit={this.createSubmit}
                 getAllPosts={this.getAllPosts}
-              />)}  />
+              />)} />
             : <div></div>
         }
 
@@ -245,13 +248,13 @@ class App extends React.Component {
           const postId = props.match.params.id;
           const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
           return <PostPage
-
+            postId={postId}
             setEdit={this.setEdit}
             deletePost={this.deletePost}
             currentPost={currentPost}
             handleCommentChange={this.handleCommentChange}
             handleCommentSubmit={this.handleCommentSubmit}
-            commentBox={this.state.commentBox }
+            commentBox={this.state.commentBox}
 
           />
         }} />

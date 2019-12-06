@@ -66,9 +66,10 @@ export const destroyPost = async (id) => {
 
 // ================CRUD Comments=====================================
 
-export const createComment = async (id, data) => {
-  debugger;
-  const resp = await api.post(`/posts/${id}/comments`, data)
+export const createComment = async (postId, userId, data) => {
+  data.user_id = userId
+  data.post_id = postId
+  const resp = await api.post(`/posts/${postId}/comments`, { comment: data })
   return resp.data
 }
 

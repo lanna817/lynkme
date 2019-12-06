@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authorize_request, except: %i[index show]
   # GET /comments
   def index
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     @comments = Comment.where(post_id: @post.id)
     # @comments = Comment.where(user_id: @user.id)
     render json: @comments, include:{post: {include: :user}}, 
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @current_user.comments << @comment
-      render json: @comment, status: :created, location: @comment
+      render json: @comment, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end

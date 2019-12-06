@@ -8,7 +8,6 @@ import Header from './Header';
 
 export default function Home(props) {
   return (
-      
         <div className='home'>
         {props.currentUser
           ?
