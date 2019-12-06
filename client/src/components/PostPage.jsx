@@ -14,9 +14,9 @@ export default function PostPage(props) {
         currentPost && (
           <>
       
-          <h3>{currentPost.content}</h3>
             <img src={currentPost.image_url} width='20%' alt='art or gig images'/>
-            <p>{currentPost.hashtags}</p>
+            <p className='text-cont'>{currentPost.content}</p>
+            <p className='hashtag'>{currentPost.hashtags}</p>
             <p>{currentPost.category}</p>
             <button onClick={() => {
               props.deletePost(currentPost.id)

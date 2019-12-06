@@ -55,7 +55,7 @@ nav a:hover{
 }
 
 
-#log-heading,#reg-heading{
+#log-heading,#reg-heading{  
   text-align:center;
 }
 
@@ -65,7 +65,7 @@ nav a:hover{
   padding: 1%;
 }
 
-input[type=text], input[type=password] {
+#username, input[type=password] {
   margin: 2em;
   padding:2% 10%;
 }
@@ -123,17 +123,17 @@ label[for=username],[for=password], [for=email]  {
 /* ===============Home===================== */
 #wel-user{
   font-size: 0.7em;
-  width: 30%;
+  display:inline;
   color: grey;
 }
 
 #logout-btn{
-  display: inline-block;
   border: 0.5px solid #9824A8;
   margin-left: 2%;
   cursor: pointer;
-  color: grey;
+  color: black;
   font-size: 0.5em;
+  display: inline-block;
 
 }
 
@@ -143,53 +143,103 @@ label[for=username],[for=password], [for=email]  {
 }
 
 #late-post{
-  text-align: center;
   margin-top: 0;
-  display: inline-block;
-  margin-left: 30%;
+  display: block;
+  margin: 5%;
 
 }
 
 .form-cont{
-  display:flex;
-  justify-content: flex-end;
+  display:inline;
 }
 
 
 #create-post {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 25%;
-  padding: 2%;
+  padding: 5%;
+  margin-right: 2%;
+  margin-top: 0;
+  background-color: #9FA8EB;
+  color: black;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 65%;
+
 }
 
 .post-list {
-  border: 1px solid black;
-  width: 30%;
+  border: 0.3px solid;
   margin-left: 2%;
-  padding-left: 18%;
-  height: 30vh;  
-  display:flex;
-  flex-wrap: wrap;
+  width: 200px;
+  padding: 0.5%;
+  display:inline-block;
+  height: 100px;
+}
+
+.post-container{
+  display: flex;
+  
+}
+
+.post-img{
+  margin: 0 auto;
 }
 
 p{
-  text-align:left;
   font-size: 0.4em;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-cont{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+}
+
+.hashtag{
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 
 .single-post {
   border: 1px solid black;
-  width: 70%;
+  width: 50%;
   margin-left: 5%;
   
 }
 
+label[for=content], [for=image_url],[for=hashtags],[for=category]{
+  font-size: 0.6em;
+}
 
+#content, #image_url, #hashtags, #category{
+  padding: 0.2em;
+  width: 100%;
+}
 
+textarea {
+  width: 30%;
+}
 
+#create-title{
+  font-size: 0.8em;
+  margin: 0;
+  text-align:center;
+  color: white;
+  text-decoration: underline;
+}
 
+#submit-create{
+  border-radius: 2px;
+}
+
+#submit-create:hover {
+  background-color:#9824A8;
+  color: white;
+}
 
 
 

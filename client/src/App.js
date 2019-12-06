@@ -7,6 +7,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
+import Header from './components/Header';
 
 import {
   loginUser,
@@ -206,6 +207,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+
+          {
+          this.state.currentUser ?
+            <Header /> : <></>
+            
+        }
+        
         {
           this.state.currentUser ?
             <Route exact path="/home" render={() => (
@@ -217,12 +225,11 @@ class App extends React.Component {
                 handleFormChange={this.handleFormChange}
                 createSubmit={this.createSubmit}
                 getAllPosts={this.getAllPosts}
-              />)} />
-
+              />)}  />
             : <div></div>
         }
 
-
+        
 
 
         <Route exact path="/" render={() => (

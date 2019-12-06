@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-
     if @current_user.comments << @comment
       render json: @comment, status: :created, location: @comment
     else
