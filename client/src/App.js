@@ -207,7 +207,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-
           {
           this.state.currentUser ?
             <Header /> : <></>
@@ -228,9 +227,6 @@ class App extends React.Component {
               />)}  />
             : <div></div>
         }
-
-        
-
 
         <Route exact path="/" render={() => (
           <Login

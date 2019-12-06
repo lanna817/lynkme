@@ -208,16 +208,29 @@ p{
   border: 1px solid black;
   width: 50%;
   margin-left: 5%;
-  
+  margin: 0 auto;
+  margin-top: 4%;
+  padding: 1%;
+  cursor: pointer;
+  text-align: center;
+}
+
+#post-pic{
+  margin: 0 auto;
 }
 
 label[for=content], [for=image_url],[for=hashtags],[for=category]{
   font-size: 0.6em;
 }
 
-#content, #image_url, #hashtags, #category{
+#image_url, #hashtags, #category{
   padding: 0.2em;
   width: 100%;
+}
+
+#content{
+  margin-left: 2%;
+  width: 80%;
 }
 
 textarea {

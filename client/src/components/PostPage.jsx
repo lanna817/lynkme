@@ -14,7 +14,7 @@ export default function PostPage(props) {
         currentPost && (
           <>
       
-            <img src={currentPost.image_url} width='20%' alt='art or gig images'/>
+            <img src={currentPost.image_url} width='60%' id='post-pic' alt='art or gig images'/>
             <p className='text-cont'>{currentPost.content}</p>
             <p className='hashtag'>{currentPost.hashtags}</p>
             <p>{currentPost.category}</p>
