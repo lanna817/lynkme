@@ -153,50 +153,61 @@ label[for=username],[for=password], [for=email]  {
 
 .form-cont{
   display:inline;
+  margin-left: 0;
+  
 }
 
 
 #create-post {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000000cc;
   color: white;
   padding: 5%;
   margin-right: 2%;
   margin-top: 0;
-  background-color: #9FA8EB;
-  color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
   border-radius: 5px;
-  margin-left: 65%;
 
 }
 
+.content-home{
+display:flex;
+flex-direction: row-reverse;
+/* justify-content: center; */
+
+}
+
+.post-list{
+  display:inline;
+}
 
 .post-container{
   display: inline-block;
   margin-left: 2%;
-  /* width: 50% */
+  width: 40%;
+  margin-right: 10%;
+
 }
 
 .post-ind {
   display: flex;
   flex-wrap: wrap;
-  padding: 0.9%;
-  border: 0.2px solid black;
+  padding: 0.6%;
+  border: 0.1px solid rgba(0, 0, 0, 0.3);
   margin-top: 5%;
-  width: 45%;
-  height: 150px;
-
 }
 
 #post-flex{
   display: flex;
   flex-direction: row-reverse;
+
 }
 
 .text-flex{
-  display: inline-block;
   width: 50%;
+  margin-left: 0;
 }
 
 p{
@@ -206,12 +217,12 @@ p{
 }
 
 .text-cont{
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Tillana', cursive;
   font-weight: bold;
   display: inline;
-
-  
 }
+
+
 
 .hashtag{
   font-family: 'Josefin Sans', sans-serif;
@@ -226,7 +237,10 @@ p{
 .post-hashtag{
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.2em;
+}
 
+.post-img{
+  padding: 2%;
 }
 
 .cate{
@@ -251,7 +265,7 @@ p{
 }
 
 label[for=content], [for=image_url],[for=hashtags],[for=category]{
-  font-size: 0.6em;
+  font-size: 0.85em;
 }
 
 #image_url, #hashtags, #category{
@@ -269,15 +283,17 @@ textarea {
 }
 
 #create-title{
-  font-size: 0.8em;
-  margin: 0;
+  font-size: 1em;
+  margin-top: 0;
   text-align:center;
   color: white;
   text-decoration: underline;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #submit-create{
   border-radius: 2px;
+  
 }
 
 #submit-create:hover {

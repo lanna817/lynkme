@@ -20,7 +20,7 @@ export default function Home(props) {
         }
 
         <h3 id='late-post'>Latest Post...</h3>
-      
+      <div className='content-home'>
       {/* <Header /> */}
       <CreatePosts
         postForm={props.postForm}
@@ -29,7 +29,8 @@ export default function Home(props) {
 
       <PostList
         posts={props.posts} />
-           </div>
+      </div>
+      </div>
      );
     }
         
