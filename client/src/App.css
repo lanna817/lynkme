@@ -173,32 +173,44 @@ label[for=username],[for=password], [for=email]  {
 
 
 .post-container{
-  display: flex;
-  width: 200px;
   display: inline-block;
   margin-left: 2%;
+  /* width: 50% */
 }
 
 .post-ind {
-  padding: 0.5%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.9%;
   border: 0.2px solid black;
   margin-top: 5%;
+  width: 45%;
+  height: 150px;
+
 }
 
-.post-img{
-  margin: 0 auto;
+#post-flex{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.text-flex{
+  display: inline-block;
+  width: 50%;
 }
 
 p{
   font-size: 0.6em;
   text-align: left;
-  display: flex;
-  flex-wrap: wrap;
+ 
 }
 
 .text-cont{
   font-family: 'Indie Flower', cursive;
   font-weight: bold;
+  display: inline;
+
+  
 }
 
 .hashtag{
@@ -217,7 +229,9 @@ p{
 
 }
 
-
+.cate{
+  margin-top:0;
+}
 
 .single-post {
   border: 0.5px solid black;

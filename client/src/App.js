@@ -113,7 +113,14 @@ class App extends React.Component {
       posts: [
         ...prevState.posts,
         newPost
-      ]
+      ],
+      postForm: {
+        content: "",
+        image_url: "",
+        hashtags: "",
+        category: "",
+        is_Anon: false
+      }
     }));
     this.props.history.push(`/home`)
 
