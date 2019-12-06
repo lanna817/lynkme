@@ -8,6 +8,7 @@ import Home from './components/Home';
 import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import {
   loginUser,
@@ -18,6 +19,7 @@ import {
   destroyPost,
   updatePost,
   getAllComments,
+  getAllUsers,
   createComment
 } from './services/api-helper';
 
@@ -45,16 +47,25 @@ class App extends React.Component {
         content: '',
         user_id: '',
         post_id: ''
-      }
+      },
+      users:[]
     };
   }
   async componentDidMount() {
     const currentUser = await verifyUser();
     this.getAllPosts();
     this.getAllComments();
+    this.getAllUsers();
     if (currentUser) {
       this.setState({ currentUser })
     }
+  }
+
+  getAllUsers = async () => {
+    const users = await getAllUsers();
+    this.setState({
+      users
+    })
   }
 
   getAllPosts = async () => {
@@ -125,20 +136,6 @@ class App extends React.Component {
     this.props.history.push(`/home`)
 
   }
-
-
-  // resetForm =  () => {
-  //   this.setState({
-  //     postForm: {
-  //       content: "",
-  //       image_url: "",
-  //       hashtags: "",
-  //       category: "",
-  //       is_Anon: false
-  //     }
-  //   })
-  // }
-
   // =====================Comments=================================
 
 
@@ -220,7 +217,6 @@ class App extends React.Component {
         {
           this.state.currentUser ?
             <Header /> : <></>
-
         }
 
         {
@@ -235,7 +231,7 @@ class App extends React.Component {
                 createSubmit={this.createSubmit}
                 getAllPosts={this.getAllPosts}
               />)} />
-            : <div></div>
+            : <></>
         }
 
         <Route exact path="/" render={() => (
@@ -254,10 +250,13 @@ class App extends React.Component {
         <Route path='/posts/:id' render={(props) => {
           const postId = props.match.params.id;
           const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
+          const user = this.state.users.find(user =>
+            user.id == currentPost.user_id )
           return <PostPage
             postId={postId}
             setEdit={this.setEdit}
             deletePost={this.deletePost}
+            user={user}
             currentPost={currentPost}
             handleCommentChange={this.handleCommentChange}
             handleCommentSubmit={this.handleCommentSubmit}
@@ -276,7 +275,13 @@ class App extends React.Component {
             editSubmit={this.editSubmit} />
         }} />
 
+        {/* {
+          this.state.currentUser ?
+            <Footer /> : <></>
+        }
+         */}
       </div>
+
     );
   }
 }

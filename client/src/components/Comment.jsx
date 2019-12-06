@@ -17,7 +17,7 @@ export default function Comment(props) {
           value={props.commentBox.content}
           onChange={props.handleCommentChange}
         />
-        <button id='submit'>Submit</button>
+        <button id='post-page-submit'>Submit</button>
       </form>
     </div>
 

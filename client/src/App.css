@@ -1,3 +1,5 @@
+
+
 a {
   text-decoration: none;
   color: black;
@@ -40,9 +42,9 @@ nav a:hover{
 #login-form{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 35%;
+  width: 45%;
   margin: 0 auto;
-  padding: 2%;
+  padding: 6%;
   margin-bottom:7%;
 
 }
@@ -50,7 +52,7 @@ nav a:hover{
 #reg-form{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 35%;
+  width: 45%;
   margin: 0 auto;
   padding: 2%;
   margin-bottom:7%;
@@ -79,6 +81,11 @@ input[type=text]:hover, input[type=password]:hover{
 label[for=username],[for=password], [for=email]  {
   font-size: 0.8em;
   margin: 1.5em;
+}
+
+label[for=log-username], [for=log-password] {
+  font-size: 0.9em;
+
 }
 
 #register-btn{
@@ -124,9 +131,9 @@ label[for=username],[for=password], [for=email]  {
 
 /* ===============Home===================== */
 #wel-user{
-  font-size: 0.7em;
+  font-size: 0.9em;
   display:inline;
-  color: grey;
+  color: black;
 }
 
 #logout-btn{
@@ -145,10 +152,8 @@ label[for=username],[for=password], [for=email]  {
 }
 
 #late-post{
-  margin-top: 0;
-  display: block;
-  margin: 5%;
-
+  text-align:right;
+  display: inline;
 }
 
 .form-cont{
@@ -164,18 +169,17 @@ label[for=username],[for=password], [for=email]  {
   padding: 5%;
   margin-right: 2%;
   margin-top: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 2px;
 
 }
 
 .content-home{
 display:flex;
 flex-direction: row-reverse;
-/* justify-content: center; */
 
 }
 
@@ -187,7 +191,7 @@ flex-direction: row-reverse;
   display: inline-block;
   margin-left: 2%;
   width: 40%;
-  margin-right: 10%;
+  margin-right: 5%;
 
 }
 
@@ -197,6 +201,7 @@ flex-direction: row-reverse;
   padding: 0.6%;
   border: 0.1px solid rgba(0, 0, 0, 0.3);
   margin-top: 5%;
+  
 }
 
 #post-flex{
@@ -229,7 +234,7 @@ p{
 }
 
 .post-cont{
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Tillana', cursive;
   font-weight: bold;
   font-size: 1.4em;
 }
@@ -248,7 +253,7 @@ p{
 }
 
 .single-post {
-  border: 0.5px solid black;
+  border: 0.2px solid black;
   width: 50%;
   margin-left: 5%;
   margin: 0 auto;
@@ -256,13 +261,48 @@ p{
   padding: 1%;
   cursor: pointer;
   text-align: center;
-  background-color: rgba(159, 168, 235, 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
+#post-edit-form{
+  border: 1px solid black;
+  margin: 5%;
+  width: 50%;
+}
+
+/* ====post edit form input styling==== */
+#image_url-edt, #hashtags-edt, #category-edt, #content-edt{
+  width: 90%;
+}
+/* ======end of post edit styling===== */
+
+#post-page-submit{
+  display: block;
+  margin: 0 auto;
+}
+
+#post-page-submit:hover{
+  background-color:#9824A8;
+  color:white;
 }
 
 #post-pic{
   margin: 0 auto;
 }
+
+#delete-btn, #edit-btn{
+  margin-left: 10%;
+  font-size: 1.3em;
+  background-color: black;
+  color:white;
+}
+
+#delete-btn:hover, #edit-btn:hover {
+  background-color:#9824A8;
+  color: black;
+}
+
+
 
 label[for=content], [for=image_url],[for=hashtags],[for=category]{
   font-size: 0.85em;
@@ -302,8 +342,19 @@ textarea {
 }
 
 
+.footer{
+  background-color: rgba(0, 0, 0, 0.9);
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  
+}
 
-
+#footer-name{
+  color:white;
+  text-align:center;
+  font-family: 'Josefin Sans', sans-serif;
+}
 
 
 

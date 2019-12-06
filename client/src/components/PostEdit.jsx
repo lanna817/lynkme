@@ -3,14 +3,14 @@ import React from 'react';
 export default function PostEdit(props) {
   return (
     <div>
-    <form onSubmit={(e) => {
+    <form id='post-edit-form' onSubmit={(e) => {
       e.preventDefault();
       props.editSubmit(props.postId);
     }}>
       <label htmlFor="content">Content</label>
       <textarea
         name="content"
-        id="content"
+        id="content-edt"
         value={props.postForm.content}
         onChange={props.handleFormChange}
       />
@@ -19,7 +19,7 @@ export default function PostEdit(props) {
       <input
         type="text"
         name="image_url"
-        id="image_url"
+        id="image_url-edt"
         value={props.postForm.image_url}
         onChange={props.handleFormChange}
       />
@@ -28,7 +28,7 @@ export default function PostEdit(props) {
       <input
         type="text"
         name="hashtags"
-        id="hashtags"
+        id="hashtags-edt"
         value={props.postForm.hashtags}
         onChange={props.handleFormChange}
       />
@@ -37,7 +37,7 @@ export default function PostEdit(props) {
       <input
         type="text"
         name="category"
-        id="category"
+        id="category-edt"
         value={props.postForm.category}
         onChange={props.handleFormChange}
       />

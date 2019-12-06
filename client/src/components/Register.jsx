@@ -14,11 +14,25 @@ const Register = (props) => {
       <h2 id='reg-heading'>Register</h2>
       <form id='reg-form' onSubmit={props.handleRegister} >
       <label htmlFor="username">Username:</label>
-        <input name="username" type="text" id='username'value={props.formData.username} onChange={props.handleChange} />
+        <input name="username"
+          type="text"
+          id='username'
+          value={props.formData.username}
+          onChange={props.handleChange} />
+          <br />
         <label htmlFor="email">Email:</label>
-        <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
+        <input name="email"
+          type="text"
+          id='email'
+          value={props.formData.email}
+          onChange={props.handleChange} />
+           <br />
         <label htmlFor="password">Password:</label>
-        <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
+        <input name="password"
+          type="password"
+          value={props.formData.password}
+          onChange={props.handleChange} />
+        
         <hr/>
         <button id='register-btn'>Register</button>
       </form>

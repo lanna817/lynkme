@@ -78,3 +78,9 @@ export const getAllComments = async (id) => {
   return resp.data
 }
 
+
+// =================USERS========================================
+export const getAllUsers = async () => {
+  const resp = await api.get(`/users`)
+  return resp.data
+ }
