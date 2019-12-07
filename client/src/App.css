@@ -16,6 +16,7 @@ nav{
   padding: 0.4em;
   align-items: center;
   font-family: 'Josefin Sans', sans-serif;
+  font-size: 1em;
  
 }
 
@@ -131,10 +132,9 @@ label[for=log-username], [for=log-password] {
 
 /* ===============Home===================== */
 #wel-user{
-  font-size: 0.9em;
+  font-size: 1.2em;
   display:inline;
   color: black;
-
 }
 
 #logout-btn{
@@ -142,7 +142,7 @@ label[for=log-username], [for=log-password] {
   margin-left: 2%;
   cursor: pointer;
   color: black;
-  font-size: 0.5em;
+  font-size: 0.9em;
 
 }
 
@@ -235,6 +235,8 @@ p{
 
 .hashtag{
   font-family: 'Josefin Sans', sans-serif;
+  font-size: 1em;
+
 }
 
 .post-cont{
@@ -320,6 +322,7 @@ label[for=content], [for=image_url],[for=hashtags],[for=category]{
 #content{
   margin-left: 2%;
   width: 80%;
+  margin-top: 5%;
 }
 
 textarea {
@@ -350,7 +353,6 @@ textarea {
   background-color: rgba(0, 0, 0, 0.9);
   bottom: 0;
   width: 100%;
-  position: absolute;
   
 }
 

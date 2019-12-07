@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from './Comment';
+// import CommentDisplay from './CommentDisplay';
 
 
 
@@ -29,7 +30,7 @@ export default function PostPage(props) {
             <button id='edit-btn' onClick={() => {
               props.setEdit(currentPost);
             }}>Edit</button>
-
+            
             
             </>
         )}
@@ -42,7 +43,9 @@ export default function PostPage(props) {
         
      />
       
-      
+      {/* <CommentDisplay
+     commentBox={props.commentBox}  />
+       */}
 
      
         

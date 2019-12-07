@@ -42,7 +42,7 @@ class App extends React.Component {
         password: ''
 
       },
-      comments: [],
+      comments:[],
       commentBox: {
         content: '',
         user_id: '',
@@ -54,7 +54,6 @@ class App extends React.Component {
   async componentDidMount() {
     const currentUser = await verifyUser();
     this.getAllPosts();
-    this.getAllComments();
     this.getAllUsers();
     if (currentUser) {
       this.setState({ currentUser })
@@ -152,7 +151,7 @@ class App extends React.Component {
 
 
 
-  handleCommentSubmit = async () => {
+  handleCommentSubmit = async (id) => {
     const postId = this.state.posts[0].id
     const userId = this.state.currentUser.id
     const newComment = await createComment(postId, userId, this.state.commentBox);
@@ -162,16 +161,10 @@ class App extends React.Component {
         newComment
       ]
     }));
-    // this.props.history.push(`/posts/${id}`)
-
+    this.props.history.push(`/posts/${id}`)
   }
 
-  getAllComments = async () => {
-    const comments = await getAllComments();
-    this.setState({
-      comments
-    })
-  }
+  
 
   // ==================================AUTH=====================
 
@@ -251,7 +244,7 @@ class App extends React.Component {
           const postId = props.match.params.id;
           const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
           const user = this.state.users.find(user =>
-            user.id == currentPost.user_id )
+            user.id == currentPost.user_id)
           return <PostPage
             postId={postId}
             setEdit={this.setEdit}
@@ -275,11 +268,11 @@ class App extends React.Component {
             editSubmit={this.editSubmit} />
         }} />
 
-        {/* {
+        {
           this.state.currentUser ?
             <Footer /> : <></>
         }
-         */}
+        
       </div>
 
     );
