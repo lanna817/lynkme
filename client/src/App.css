@@ -348,12 +348,31 @@ textarea {
   color: white;
 }
 
+.locals{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+.gigs{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+
+}
+
+.local-update{
+  width: 40%;
+  margin-left: 2%;
+}
+
+
 
 .footer{
   background-color: rgba(0, 0, 0, 0.9);
   bottom: 0;
   width: 100%;
-  
+  padding-bottom:2%;  
 }
 
 #footer-name{
@@ -361,6 +380,7 @@ textarea {
   text-align:center;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 
 
 
