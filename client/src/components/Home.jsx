@@ -8,6 +8,7 @@ import eli from '../images/eli_art.jpg';
 import xaviera from '../images/xaviera_art.jpg';
 import nrf from '../images/nrf.png';
 import expresso from '../images/expresso.jpg';
+import snl from '../images/saturday.jpg';
 
 
 
@@ -46,8 +47,9 @@ export default function Home(props) {
         <>
         <h1 id='gig-headline'>Latest Gigs/Events</h1>
       <div className='gigs'>
-      <img src={nrf} alt='events-image' width='20%' />
-       <img src={expresso} alt='events-image' width='20%' />
+      <img src={nrf} alt='events-image' width='30%' />
+       <img src={expresso} alt='events-image' width='30%' />
+       <img src={snl} alt='events-image' width='30%' />
       </div>
         </>
         </div>

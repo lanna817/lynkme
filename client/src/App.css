@@ -12,7 +12,7 @@ header {
 nav{
   color:black;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0.4em;
   align-items: center;
   font-family: 'Josefin Sans', sans-serif;
@@ -26,7 +26,7 @@ nav a:hover{
 
 
 #img-logo{
-  margin-left: -0.5em;
+  margin-left: -5em;
 }
 
 /* ===========Login/Register Page=========== */
@@ -43,9 +43,9 @@ nav a:hover{
 #login-form{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 45%;
+  width: 30%;
   margin: 0 auto;
-  padding: 6%;
+  padding: 5%;
   margin-bottom:7%;
 
 }
@@ -53,7 +53,7 @@ nav a:hover{
 #reg-form{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 45%;
+  width: 30%;
   margin: 0 auto;
   padding: 2%;
   margin-bottom:7%;
@@ -64,13 +64,20 @@ nav a:hover{
   text-align:center;
 }
 
+#log-heading{
+  font-size: 2.3em;
+  color:white;
+}
+
 #reg-heading{
   margin:0;
   color:white;
   padding: 1%;
+  font-size: 3em;
+  margin-bottom: 5%;
 }
 
-#username, input[type=password] {
+#username,#email, input[type=password] {
   margin: 2em;
   padding:2% 10%;
 }
@@ -80,7 +87,7 @@ input[type=text]:hover, input[type=password]:hover{
 }
 
 label[for=username],[for=password], [for=email]  {
-  font-size: 0.8em;
+  font-size: 1em;
   margin: 1.5em;
 }
 
@@ -92,11 +99,14 @@ label[for=log-username], [for=log-password] {
 #register-btn{
   color:black;
   border: 1px solid #9824A8;
+  padding:3% 10%;
 }
 
 #login-btn,#reg-btn {
   margin-left: 2.5em;
   border: 1px solid #9824A8;
+  padding:3% 10%;
+
 }
 
 #register-btn:hover{
@@ -104,9 +114,11 @@ label[for=log-username], [for=log-password] {
   color:white;
 }
 
+
 #login-btn:hover {
   background-color:#9824A8;
   color:white;
+  
 }
 
 
@@ -135,6 +147,7 @@ label[for=log-username], [for=log-password] {
   font-size: 1.2em;
   display:inline;
   color: black;
+  font-weight: bold;
 }
 
 #logout-btn{
@@ -152,9 +165,11 @@ label[for=log-username], [for=log-password] {
 }
 
 #late-post{
-  margin-left: 40%;
-  width: 30%
-
+  margin-left: 45%;
+  width: 30%;
+  margin-top: 3%;
+  font-size: 1.6em;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .form-cont{
@@ -206,6 +221,7 @@ flex-direction: row-reverse;
   
 }
 
+
 #post-flex{
   display: flex;
   flex-direction: row-reverse;
@@ -228,7 +244,6 @@ p{
   font-weight: bold;
   display: inline;
   font-size: 1em;
-
 }
 
 
@@ -358,15 +373,20 @@ textarea {
   display:flex;
   flex-wrap: wrap;
   justify-content:space-around;
+  margin-top: 2%;
 
 }
 
 .local-update{
-  width: 40%;
+  width: 35%;
   margin-left: 2%;
 }
 
-
+#gig-headline, #art-headline{
+  font-size: 2em;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: rgba(152, 36, 168,0.2);
+}
 
 .footer{
   background-color: rgba(0, 0, 0, 0.9);

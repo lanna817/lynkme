@@ -9,6 +9,7 @@ import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Art from './components/Art';
 
 import {
   loginUser,
@@ -209,7 +210,7 @@ class App extends React.Component {
       <div className="app">
         {
           this.state.currentUser ?
-            <Header /> : <></>
+           <> <Header />  <Route path="/art" component={Art}/> </> : <></>
         }
 
         {
