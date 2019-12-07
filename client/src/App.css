@@ -134,6 +134,7 @@ label[for=log-username], [for=log-password] {
   font-size: 0.9em;
   display:inline;
   color: black;
+
 }
 
 #logout-btn{
@@ -142,7 +143,6 @@ label[for=log-username], [for=log-password] {
   cursor: pointer;
   color: black;
   font-size: 0.5em;
-  display: inline-block;
 
 }
 
@@ -152,8 +152,9 @@ label[for=log-username], [for=log-password] {
 }
 
 #late-post{
-  text-align:right;
-  display: inline;
+  margin-left: 40%;
+  width: 30%
+
 }
 
 .form-cont{
@@ -174,6 +175,7 @@ label[for=log-username], [for=log-password] {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
   border-radius: 2px;
+  
 
 }
 
@@ -225,6 +227,8 @@ p{
   font-family: 'Tillana', cursive;
   font-weight: bold;
   display: inline;
+  font-size: 1em;
+
 }
 
 
