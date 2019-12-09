@@ -1,0 +1,3 @@
+class LocalEvent < ApplicationRecord
+
+end

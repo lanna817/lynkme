@@ -1,61 +1,83 @@
 import React from 'react';
 import logo from '../images/lynk_logo.png';
-import PostList from './PostList';
-import CreatePosts from './CreatePosts';
-import dustin from '../images/dustin_art.jpg';
-import micka from '../images/micka_art.jpg';
-import eli from '../images/eli_art.jpg';
-import xaviera from '../images/xaviera_art.jpg';
-import nrf from '../images/nrf.png';
-import expresso from '../images/expresso.jpg';
-import snl from '../images/saturday.jpg';
+import { Link } from 'react-router-dom';
+
 
 
 
 export default function Home(props) {
   return (
-        <div className='home'>
-        {props.currentUser
-          ?
-          <>
-            <p id='wel-user'>Welcome {props.currentUser.username}!</p>
-            <button id='logout-btn' onClick={props.handleLogout}>logout</button>
-          </>
-          :
-          <div><h1>You need to log in to do that</h1></div>
-        }
-      <h3 id='late-post'>Latest Post...</h3>
-      <div className='content-home'>
-
-      {/* <Header /> */}
-      <CreatePosts
-        postForm={props.postForm}
-        handleFormChange={props.handleFormChange}
-        createSubmit={props.createSubmit} />
-
-      <PostList
-          posts={props.posts} />
-        
-        <div className='local-update'>
-        <h1 id='art-headline'>Artist Spotlight</h1>
-      <div className='locals'>
-        <img src={micka}  alt='artist image' width='20%' />
-        <img src={dustin} alt='artist image' width='30%' />
-        <img src={xaviera} alt='artist image' width='25%'/>
-        <img src={eli} alt='artist image' width='30%' />
-      </div>
+    <div className='home'>
+      {props.currentUser
+        ?
         <>
-        <h1 id='gig-headline'>Latest Gigs/Events</h1>
-      <div className='gigs'>
-      <img src={nrf} alt='events-image' width='30%' />
-       <img src={expresso} alt='events-image' width='30%' />
-       <img src={snl} alt='events-image' width='30%' />
-      </div>
+          <p id='wel-user'>Welcome {props.currentUser.username}!</p>
+          <button id='logout-btn' onClick={props.handleLogout}>logout</button>
         </>
+        :
+        <div><h1>You need to log in to do that</h1></div>
+      }
+      <div id='web-desc'>
+      <h3>Find local <span className='art-color'>Art</span>ists in your area.
+            Post Your <span className='art-color'>Art</span>.
+            Post <span className='gig-color'>Gigs</span>.
+            Find Events. 
+          Support Your <span className='com-color'>Community</span>.</h3>
         </div>
-        
+      <h1 id='art-headline'><span className='art-color'>Art</span>ist Spotlight</h1>
+      <div className='content-home'>
+        <div className='local-update'>
+          <div className='locals'>
+            {
+              props.artists.map(art => (
+                <div className='flip-card'>
+                  <div className='flip-card-inner'>
+                    <div className='art-ind' key={art.id}>
+                      <div className='flip-img-front'>
+                      <img src={art.image_url} className='art-img' width='100%' height='90%' alt='art or gig images' />
+                      </div>
+                      <div className='flip-back'>
+                    <div className='art-desc'>
+            <p className='art-name'>{art.name}</p>
+                <p className='loc-text'>{art.location}</p>
+            <p className='art-bio'>{art.bio}</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+              ))
+            }
+          </div>
+          <>
+              <h1 id='event-headline'>Upcoming Events</h1>
+          <div className='event-loc'>
+          {
+              props.events.map(event => (
+               
+                    <div className='event-ind' key={event.id}>
+                      <div className='img-event'>
+                      <img src={event.image_url} className='event-img' width='100%' height='90%' alt='art or gig images' />
+                      </div>
+                    <div className='event-desc'>
+                      <p className='event-name'>{event.title}</p>
+                       <p className='event-date'>{event.date}</p>
+                      <p className='event-text'>{event.description}</p>
+                      <p className='loc-text'>{event.address}</p>
+                        </div>
+                       
+                    </div>
+                    
+
+              ))
+            }
+            </div>
+          </>
+        </div>
+
       </div>
-      </div>
-     );
-    }
-        
+    </div>
+  );
+}
+

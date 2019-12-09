@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get '/auth/verify', to: 'authentication#verify'
   resources :users
   resources :posts do
-resources :comments
+    resources :comments
+  end
+  resources :localart
+  resources :localevent do
+    resources :comments
   end
   #  get '/endpoint', to: 'controller#method'
 

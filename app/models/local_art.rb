@@ -1,0 +1,2 @@
+class LocalArt < ApplicationRecord
+end

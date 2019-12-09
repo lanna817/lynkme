@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from './Comment';
-// import CommentDisplay from './CommentDisplay';
 
 
 
 export default function PostPage(props) {
-  const { currentPost, user } = props;
+  const { currentPost } = props;
   console.log(props)
   
   return (
     
     <div className='single-post'>
-      {/* <p>{user.username}</p> */}
       {
         currentPost && (
           <>
@@ -42,12 +40,6 @@ export default function PostPage(props) {
         commentBox={props.commentBox}
         
      />
-      
-      {/* <CommentDisplay
-     commentBox={props.commentBox}  />
-       */}
-
-     
         
     </div>
   )

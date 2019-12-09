@@ -84,4 +84,27 @@ export const getAllComments = async (id) => {
 export const getAllUsers = async () => {
   const resp = await api.get(`/users`)
   return resp.data
- }
+}
+ 
+
+// =================Local Artist======================================
+export const getAllArtists = async () => {
+  const resp = await api.get(`/localart`)
+  return resp.data
+}
+
+export const getOneArt = async (id) => {
+  const resp = await api.get(`/localevent/${id}`)
+}
+
+
+// ===================Local Events===============================================
+export const getAllEvents = async () => {
+  const resp = await api.get(`/localevent`)
+  return resp.data
+}
+
+export const getOneEvent = async (id) => {
+  const resp = await api.get(`/localevent/${id}`)
+  return resp.data
+}

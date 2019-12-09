@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     @comments = Comment.where(post_id: @post.id)
-    # @comments = Comment.where(user_id: @user.id)
     render json: @comments, include:{post: {include: :user}}, 
     
     status: :ok
