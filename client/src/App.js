@@ -9,6 +9,7 @@ import Home from './components/Home';
 import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
 import Footer from './components/Footer';
+import ArtWorkForm from './components/ArtWorkForm';
 import Art from './components/Art';
 
 import {
@@ -55,8 +56,13 @@ class App extends React.Component {
       },
       artists: [],
       events: [],
-      art: "",
-      event:""
+      artworks: [],
+      artForm: {
+        content: "",
+        image_url: "",
+        category: "",
+        is_Anon: false
+      }
 
     };
   }
@@ -66,6 +72,7 @@ class App extends React.Component {
     this.getAllArt();
     this.getAllUsers();
     this.getEvents();
+    this.getAllArtWork();
     if (currentUser) {
       this.setState({ currentUser })
     }
@@ -211,6 +218,42 @@ class App extends React.Component {
     this.props.history.push(`/posts/${id}`)
   }
 
+  // ============================Post ArtWork==========================
+
+  getAllArtWork = async () => {
+    const artworks = await getAllPosts();
+    this.setState({
+      artworks
+    })
+  }
+
+  handleArtChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      artForm: {
+        ...prevState.artForm,
+        [name]: value
+      }
+    }))
+  }
+
+  createArtSubmit = async () => {
+    const newArtWork = await createPost(this.state.artForm);
+    this.setState(prevState => ({
+      artworks: [
+        ...prevState.artworks,
+        newArtWork
+      ],
+      artForm: {
+        content: "",
+        image_url: "",
+        category: "",
+        is_Anon: false
+      }
+    }));
+    this.props.history.push(`/art`)
+
+  }
 
 
   // ==================================AUTH=====================
@@ -282,10 +325,10 @@ class App extends React.Component {
             artists={this.state.artists}
             events={this.state.events}
           />)} />
-         <Route path='/posts/:id' render={(props) => {
+        <Route path='/posts/:id' render={(props) => {
           const postId = props.match.params.id;
           const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
-       
+
           return <PostPage
             postId={postId}
             setEdit={this.setEdit}
@@ -302,21 +345,31 @@ class App extends React.Component {
         <Route path='/posts/:id/edit' render={(props) => {
           const postId = props.match.params.id;
           return <PostEdit
-          postId={postId}
-          postForm={this.state.postForm}
-          handleFormChange={this.handleFormChange}
-          editSubmit={this.editSubmit} />
-        }} /> 
+            postId={postId}
+            postForm={this.state.postForm}
+            handleFormChange={this.handleFormChange}
+            editSubmit={this.editSubmit} />
+        }} />
 
-        
+{/* ==================ART =========================================== */}
+
         <Route path='/art' render={() => (
           <Art
-           handleFormChange={this.handleFormChange}
-            postForm={this.state.postForm}
-            posts={this.state.posts}
-            createSubmit={this.createSubmit}
+            handleArtChange={this.handleArtChange}
+            artForm={this.state.artForm}
+            artworks={this.state.artworks}
+            createArtSubmit={this.createArtSubmit}
 
-             />)} />
+          />)} />
+
+        <Route path='/artform' render={(props) => (
+          <ArtWorkForm
+            handleArtChange={this.handleArtChange}
+            artForm={this.state.artForm}
+            artworks={this.state.artworks}
+            createArtSubmit={this.createArtSubmit}
+
+          />)} />
 
 
         {
