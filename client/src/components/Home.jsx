@@ -20,8 +20,8 @@ export default function Home(props) {
       <div id='web-desc'>
       <h3>Find local <span className='art-color'>Art</span>ists in your area.
             Post Your <span className='art-color'>Art</span>.
-            Post <span className='gig-color'>Gigs</span>.
-            Find Events. 
+            Post <span className='gig-color'>Events</span>.
+            Find <span className='gig-color'>Events</span>. 
           Support Your <span className='com-color'>Community</span>.</h3>
         </div>
       <h1 id='art-headline'><span className='art-color'>Art</span>ist Spotlight</h1>
@@ -51,11 +51,12 @@ export default function Home(props) {
             }
           </div>
           <>
-              <h1 id='event-headline'>Upcoming Events</h1>
-          <div className='event-loc'>
+              <h1 id='event-headline'><span className='art-color'>Up</span>coming <span className='gig-color'>Events</span></h1>
+            <div className='event-loc'>
+              
           {
               props.events.map(event => (
-               
+
                     <div className='event-ind' key={event.id}>
                       <div className='img-event'>
                       <img src={event.image_url} className='event-img' width='100%' height='90%' alt='art or gig images' />

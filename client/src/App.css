@@ -465,6 +465,7 @@ textarea {
 #event-headline{
   margin-top: 9%;
 }
+
 .art-color{
   color:#9824A8;
 }
@@ -500,11 +501,26 @@ textarea {
 
 .event-ind{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+   transition: all .2s ease-in-out; 
+}
+
+.event-ind:hover{
+  transform: scale(1.1);
 }
 
 .event-text, .event-name{
   font-family: 'Lato', sans-serif;
   text-align: center;
+}
+
+.event-text, .loc-text{
+  padding:2%;
+}
+
+.event-text{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.95em;
+
 }
 
 .event-name{
@@ -520,6 +536,8 @@ textarea {
   font-family: 'Josefin Sans', sans-serif;
   text-align:center;
 }
+
+
 
 
 .footer{
