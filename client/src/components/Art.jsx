@@ -21,6 +21,8 @@ class Art extends React.Component {
     return (
       <div className='art-pg'>
         <h3 className='head-title'>Post a pic of your own <span className='art-color'>Art</span> or <span className='art-color'>art</span>work that you like…</h3>
+        <h3 id='buy-post'>Buy <span className='art-color'>Art</span></h3>
+        <img src={"https://img-lumas-avensogmbh1.netdna-ssl.com/showimg_awg36_desktop.jpg"} width='30%' alt='bamboo trees'/>
         <h3 id='late-post'>Latest Posts...</h3>
         <div className='flex-post'>
 

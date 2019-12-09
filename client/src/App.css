@@ -186,7 +186,13 @@ label[for=log-username], [for=log-password] {
   width:50%;
 }
 
+#buy-post{
+  text-align:center;
+  margin-right: 10%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.5em;
 
+}
 
 
 #create-post {
