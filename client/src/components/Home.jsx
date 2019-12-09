@@ -30,9 +30,10 @@ export default function Home(props) {
           <div className='locals'>
             {
               props.artists.map(art => (
+                <div key={art.id}>
                 <div className='flip-card'>
                   <div className='flip-card-inner'>
-                    <div className='art-ind' key={art.id}>
+                    <div className='art-ind' >
                       <div className='flip-img-front'>
                       <img src={art.image_url} className='art-img' width='100%' height='90%' alt='art or gig images' />
                       </div>
@@ -45,11 +46,13 @@ export default function Home(props) {
                         </div>
                     </div>
                     </div>
-                  </div>
+                </div>
+                </div>
 
               ))
             }
           </div>
+          
           <>
               <h1 id='event-headline'><span className='art-color'>Up</span>coming <span className='gig-color'>Events</span></h1>
             <div className='event-loc'>
@@ -77,6 +80,16 @@ export default function Home(props) {
           </>
         </div>
 
+      </div>
+        <h3 id='news-headline'>News</h3>
+      <div className='news'>
+        <h3 id='news-title' >ZONA MACO REVEALS GALLERY LIST FOR 2020 EDITION, UNTITLED, ART MIAMI BEACH AWARDS OTAZU ART PRIZE, AND MORE</h3>
+        <p className='news-text'>Zona Maco has announced that more than one-hundred galleries hailing from twenty-six countries in the Americas, Europe, and Asia will participate in its next edition, which will take place in Centro Citibanamex in Mexico City from February 5 to February 9, 2020. For the first time, Zona Maco will present its modern and contemporary art, design, photography, and antiques fairs simultaneously in the same location. </p>
+        
+        <h3>PÉREZ ART MUSEUM MIAMI ANNOUNCES NADA ACQUISITION GIFT</h3>
+        <p className='news-text'>
+        The New Art Dealers Alliance (NADA) and Pérez Art Museum Miami (PAMM) have announced the selection of the third annual NADA acquisition gift for the museum. PAMM associate curator María Elena Ortiz and assistant curator Jennifer Inacio have selected New Hat, 2019, by Dominican-American artist Kenny Rivero from Charles Moffett’s booth for the institution.
+        </p>
       </div>
     </div>
   );

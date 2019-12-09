@@ -25,10 +25,13 @@ nav{
 
 .nav-color a:hover{
   color: #34a824;
+  cursor: pointer;
 }
 
 nav a:hover{
   color: #9824A8;
+  cursor: pointer;
+
 }
 
 
@@ -91,6 +94,8 @@ nav a:hover{
 
 input[type=text]:hover, input[type=password]:hover{
   border: 1px solid #9824A8;
+  cursor: pointer;
+
 }
 
 label[for=username],[for=password], [for=email]  {
@@ -113,18 +118,24 @@ label[for=log-username], [for=log-password] {
   margin-left: 2.5em;
   border: 1px solid #9824A8;
   padding:3% 10%;
+  cursor: pointer;
+
 
 }
 
 #register-btn:hover{
   background-color:#9824A8;
   color:white;
+  cursor: pointer;
+
 }
 
 
 #login-btn:hover {
   background-color:#9824A8;
   color:white;
+  cursor: pointer;
+
   
 }
 
@@ -132,6 +143,8 @@ label[for=log-username], [for=log-password] {
 #reg-btn:hover{
   background-color:#9824A8;
   color:white;
+  cursor: pointer;
+
 }
 
 .login-pg{
@@ -170,6 +183,8 @@ label[for=log-username], [for=log-password] {
 #logout-btn:hover{
   background-color:#9824A8;
   color:white;
+  cursor: pointer;
+
 }
 
 #late-post{
@@ -190,8 +205,7 @@ label[for=log-username], [for=log-password] {
   text-align:center;
   margin-right: 10%;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 2em;
-  text-decoration-line: underline;
+  font-size: 2.4em;
 
 
 }
@@ -218,8 +232,10 @@ label[for=log-username], [for=log-password] {
 }
 
 .text-img{
-  font-size:2em;
+  font-size:1.5em;
 }
+
+
 
 .grid-buy{
   display:grid;
@@ -234,6 +250,15 @@ label[for=log-username], [for=log-password] {
   font-size: 2em;
   padding: 2%;
   margin: 1em;
+  margin-left: 41%;
+}
+
+
+
+#add-artwork:hover{
+  background-color: #9824A8;
+  color:white;
+  cursor: pointer;
 
 }
 
@@ -264,6 +289,8 @@ label[for=log-username], [for=log-password] {
 .post-ind:hover{
   animation: pulse 1.15s infinite cubic-bezier(0.66, 0, 0, 1);
   transform: scale(1.1);
+  cursor: pointer;
+
 
 
 }
@@ -358,6 +385,8 @@ p{
 #post-page-submit:hover{
   background-color:#9824A8;
   color:white;
+  cursor: pointer;
+
 }
 
 #post-pic{
@@ -374,6 +403,8 @@ p{
 #delete-btn:hover, #edit-btn:hover {
   background-color:#9824A8;
   color: black;
+  cursor: pointer;
+
 }
 
 
@@ -420,6 +451,8 @@ textarea {
   background-color:#9824A8;
   color: white;
   animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  cursor: pointer;
+
 }
 @keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
 
@@ -466,6 +499,8 @@ textarea {
 
 .flip-card:hover .flip-card-inner{
   transform: rotateY(180deg);
+  cursor: pointer;
+
 }
 
 .flip-img-front, .flip-back{
@@ -482,6 +517,8 @@ textarea {
 
 .art-ind:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+
   
 }
 
@@ -512,7 +549,7 @@ textarea {
   text-align: center;
 }
 
-#event-headline, #art-headline{
+#event-headline, #art-headline, #news-headline{
   font-size: 2em;
   font-family: 'Josefin Sans', sans-serif;
   text-align:center;
@@ -521,6 +558,17 @@ textarea {
 
 #event-headline{
   margin-top: 9%;
+}
+
+.news{
+width: 70%;
+margin: 0 auto;
+border:1px solid gray;
+padding:4%;
+}
+
+.news-text{
+  font-size:1em;
 }
 
 .art-color{
@@ -563,6 +611,7 @@ textarea {
 
 .event-ind:hover{
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .event-text, .event-name{
@@ -608,6 +657,8 @@ textarea {
   color:white;
   text-align:center;
   font-family: 'Josefin Sans', sans-serif;
+  padding-top:4%;
+  font-size: 1.5em;
 }
 
 
