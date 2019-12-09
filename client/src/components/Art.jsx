@@ -10,32 +10,33 @@ class Art extends React.Component {
     super(props);
     this.state = {
       artwork: [],
-      
+
     }
   }
 
 
 
-render() {
+  render() {
 
-  return (
-    <div className='art-pg'>
-      <h1>ART</h1>
-      <h3>Post a pic of your own artwork or artwork that you like…</h3>
+    return (
+      <div className='art-pg'>
+        <h3 className='head-title'>Post a pic of your own <span className='art-color'>Art</span> or <span className='art-color'>art</span>work that you like…</h3>
+        <h3 id='late-post'>Latest Posts...</h3>
+        <div className='flex-post'>
 
+          <CreatePosts
+            postForm={this.props.postForm}
+            handleFormChange={this.props.handleFormChange}
+            createSubmit={this.props.createSubmit} />
+          
+          <PostList
+            posts={this.props.posts} />
 
-      <CreatePosts
-        postForm={this.props.postForm}
-        handleFormChange={this.props.handleFormChange}
-        createSubmit={this.props.createSubmit} />
-      <PostList
-        posts={this.props.posts} />
+        </div>
 
-
-
-    </div>
-  )
-}
+      </div>
+    )
+  }
 }
 
 export default withRouter(Art);

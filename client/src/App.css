@@ -181,27 +181,29 @@ label[for=log-username], [for=log-password] {
 }
 
 .form-cont{
-  display:inline;
-  margin-left: 0;
-  
+  margin-top: 0;
+  margin-left: 2%;
+  width:50%;
 }
+
+
 
 
 #create-post {
   background-color: #000000cc;
-  color: white;
-  padding: 5%;
-  margin-right: 2%;
-  margin-top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: black;
+  padding: 2%;
+  background-color:#F2F2F2;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  border-radius: 2px;
-  
+  border-radius: 5px;
+  width: 50%;
 
 }
 
+.head-title{
+  margin: 2%;
+}
 
 .post-list{
   display:inline;
@@ -209,25 +211,36 @@ label[for=log-username], [for=log-password] {
 
 .post-container{
   display: inline-block;
-  margin-left: 2%;
+  margin-left: 0;
   width: 40%;
-  margin-right: 5%;
+  margin-right:30%;
 
 }
 
 .post-ind {
-  display: flex;
-  flex-wrap: wrap;
   padding: 0.6%;
   border: 0.1px solid rgba(0, 0, 0, 0.3);
   margin-top: 5%;
-  
+  box-shadow: 0 8px 16px 0 rgba(152, 36, 168, 0.2);
 }
+
+.post-ind:hover{
+  animation: pulse 1.15s infinite cubic-bezier(0.66, 0, 0, 1);
+  transform: scale(1.1);
+
+
+}
+@keyframes pulse {to {box-shadow: 0 0 0 45px rgba(152, 36, 168, 0.4);}}
 
 
 #post-flex{
   display: flex;
   flex-direction: row-reverse;
+}
+
+.flex-post {
+  display: flex;
+  flex-direction: row;
 
 }
 
@@ -296,7 +309,7 @@ p{
 
 /* ====post edit form input styling==== */
 #image_url-edt, #hashtags-edt, #category-edt, #content-edt{
-  width: 90%;
+  width: 100%;
 }
 /* ======end of post edit styling===== */
 
@@ -330,6 +343,8 @@ p{
 
 label[for=content], [for=image_url],[for=hashtags],[for=category]{
   font-size: 0.85em;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
 }
 
 #image_url, #hashtags, #category{
@@ -348,23 +363,28 @@ textarea {
 }
 
 #create-title{
-  font-size: 1em;
+  font-size: 2em;
   margin-top: 0;
   text-align:center;
-  color: white;
-  text-decoration: underline;
+  color: black;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 #submit-create{
   border-radius: 2px;
-  
+  padding: 3%;
+  font-size: 1.2em;
+  margin-top:5%;
+  box-shadow: 0 0 0 0 rgba(52, 168, 36, 0.7);
 }
+
 
 #submit-create:hover {
   background-color:#9824A8;
   color: white;
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
 }
+@keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
 
 
 

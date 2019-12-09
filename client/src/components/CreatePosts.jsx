@@ -7,7 +7,7 @@ export default function CreatePosts(props) {
         e.preventDefault();
         props.createSubmit();
       }}>
-          <p id='create-title'>Create a Post</p>
+          <p id='create-title'>Post</p>
         <label htmlFor="content">Content:</label>
         <textarea
           name="content"
