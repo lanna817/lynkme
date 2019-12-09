@@ -190,9 +190,12 @@ label[for=log-username], [for=log-password] {
   text-align:center;
   margin-right: 10%;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.5em;
+  font-size: 2em;
+  text-decoration-line: underline;
+
 
 }
+
 
 
 #create-post {
@@ -207,8 +210,31 @@ label[for=log-username], [for=log-password] {
 
 }
 
+.price-desc{
+  font-size: 1.2em;
+  padding:2%;
+  text-align:center;
+
+}
+
+.text-img{
+  font-size:2em;
+}
+
+.grid-buy{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-gap: 2em 4em;
+  justify-items: center;
+
+
+}
+
 .head-title{
   margin: 2%;
+  margin-top: 5%;
 }
 
 .post-list{
