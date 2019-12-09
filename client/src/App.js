@@ -4,8 +4,10 @@ import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Login from './components/Login';
 import Register from './components/Register';
-import Home from './components/Home';
 import Header from './components/Header';
+import Home from './components/Home';
+import PostEdit from './components/PostEdit';
+import PostPage from './components/PostPage';
 import Footer from './components/Footer';
 import Art from './components/Art';
 
@@ -13,6 +15,10 @@ import {
   loginUser,
   registerUser,
   verifyUser,
+  getAllPosts,
+  createPost,
+  destroyPost,
+  updatePost,
   getAllComments,
   getAllUsers,
   createComment,
@@ -33,6 +39,14 @@ class App extends React.Component {
         password: ''
 
       },
+      posts: [],
+      postForm: {
+        content: "",
+        image_url: "",
+        hashtags: "",
+        category: "",
+        is_Anon: false
+      },
       comments: [],
       commentBox: {
         content: '',
@@ -48,13 +62,20 @@ class App extends React.Component {
   }
   async componentDidMount() {
     const currentUser = await verifyUser();
-    // this.getAllPosts();
+    this.getAllPosts();
     this.getAllArt();
     this.getAllUsers();
     this.getEvents();
     if (currentUser) {
       this.setState({ currentUser })
     }
+  }
+
+  getAllPosts = async () => {
+    const posts = await getAllPosts();
+    this.setState({
+      posts
+    })
   }
 
   getAllUsers = async () => {
@@ -93,74 +114,74 @@ class App extends React.Component {
     })
   }
 
-  // getAllPosts = async () => {
-  //   const posts = await getAllPosts();
-  //   this.setState({
-  //     posts
-  //   })
-  // }
+  getAllPosts = async () => {
+    const posts = await getAllPosts();
+    this.setState({
+      posts
+    })
+  }
 
-  // setEdit = (data) => {
-  //   const { content, image_url, hashtags, category } = data;
-  //   this.setState({
-  //     postForm: {
-  //       content,
-  //       image_url,
-  //       hashtags,
-  //       category
-  //     }
-  //   });
-  //   this.props.history.push(`/posts/${data.id}/edit`);
-  // }
+  setEdit = (data) => {
+    const { content, image_url, hashtags, category } = data;
+    this.setState({
+      postForm: {
+        content,
+        image_url,
+        hashtags,
+        category
+      }
+    });
+    this.props.history.push(`/posts/${data.id}/edit`);
+  }
 
-  // editSubmit = async (id) => {
-  //   const updatedForm = await updatePost(id, this.state.postForm);
-  //   this.setState(prevState => ({
-  //     posts: prevState.posts.map(post => {
-  //       return post.id === parseInt(id) ? updatedForm : post
-  //     })
-  //   }));
-  //   this.props.history.push(`/posts/${id}`)
-  // }
-
-
-  // deletePost = async (id) => {
-  //   await destroyPost(id);
-  //   this.setState(prevState => ({
-  //     posts: prevState.posts.filter(post => post.id !== id)
-  //   }))
-  //   this.props.history.push(`/art`)
-  // }
+  editSubmit = async (id) => {
+    const updatedForm = await updatePost(id, this.state.postForm);
+    this.setState(prevState => ({
+      posts: prevState.posts.map(post => {
+        return post.id === parseInt(id) ? updatedForm : post
+      })
+    }));
+    this.props.history.push(`/posts/${id}`)
+  }
 
 
-  // handleFormChange = (e) => {
-  //   const { name, value } = e.target;
-  //   this.setState(prevState => ({
-  //     postForm: {
-  //       ...prevState.postForm,
-  //       [name]: value
-  //     }
-  //   }))
-  // }
+  deletePost = async (id) => {
+    await destroyPost(id);
+    this.setState(prevState => ({
+      posts: prevState.posts.filter(post => post.id !== id)
+    }))
+    this.props.history.push(`/art`)
+  }
 
-  // createSubmit = async () => {
-  //   const newPost = await createPost(this.state.postForm);
-  //   this.setState(prevState => ({
-  //     posts: [
-  //       ...prevState.posts,
-  //       newPost
-  //     ],
-  //     postForm: {
-  //       content: "",
-  //       image_url: "",
-  //       hashtags: "",
-  //       category: "",
-  //       is_Anon: false
-  //     }
-  //   }));
-  //   this.props.history.push(`/art`)
 
-  // }
+  handleFormChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      postForm: {
+        ...prevState.postForm,
+        [name]: value
+      }
+    }))
+  }
+
+  createSubmit = async () => {
+    const newPost = await createPost(this.state.postForm);
+    this.setState(prevState => ({
+      posts: [
+        ...prevState.posts,
+        newPost
+      ],
+      postForm: {
+        content: "",
+        image_url: "",
+        hashtags: "",
+        category: "",
+        is_Anon: false
+      }
+    }));
+    this.props.history.push(`/art`)
+
+  }
   // =====================Comments=================================
 
 
@@ -261,16 +282,7 @@ class App extends React.Component {
             artists={this.state.artists}
             events={this.state.events}
           />)} />
-        
-        <Route path='/art' render={() => (
-          <Art
-            
-             />)} />
-        
-
-         
-
-        {/* <Route path='/posts/:id' render={(props) => {
+         <Route path='/posts/:id' render={(props) => {
           const postId = props.match.params.id;
           const currentPost = this.state.posts.find(post => post.id === parseInt(postId));
        
@@ -284,18 +296,27 @@ class App extends React.Component {
             commentBox={this.state.commentBox}
 
           />
-        }} /> */}
+        }} />
 
 
-        {/* <Route path='/posts/:id/edit' render={(props) => {
+        <Route path='/posts/:id/edit' render={(props) => {
           const postId = props.match.params.id;
           return <PostEdit
-            postId={postId}
-            postForm={this.state.postForm}
-            handleFormChange={this.handleFormChange}
-            editSubmit={this.editSubmit} />
-        }} /> */}
+          postId={postId}
+          postForm={this.state.postForm}
+          handleFormChange={this.handleFormChange}
+          editSubmit={this.editSubmit} />
+        }} /> 
 
+        
+        <Route path='/art' render={() => (
+          <Art
+           handleFormChange={this.handleFormChange}
+            postForm={this.state.postForm}
+            posts={this.state.posts}
+            createSubmit={this.createSubmit}
+
+             />)} />
 
 
         {
