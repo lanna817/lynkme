@@ -207,10 +207,24 @@ label[for=log-username], [for=log-password] {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 2.4em;
 
-
 }
 
+p a{
+color:#9824A8;
+}
 
+p a:hover{
+  color:black;
+}
+
+#news-headline{
+  text-decoration: underline;
+  font-family: 'Lato', sans-serif;
+  text-align:center;
+  font-size: 2.5em;
+
+
+}
 
 #create-post {
   background-color: #000000cc;
@@ -549,7 +563,7 @@ textarea {
   text-align: center;
 }
 
-#event-headline, #art-headline, #news-headline{
+#event-headline, #art-headline{
   font-size: 2em;
   font-family: 'Josefin Sans', sans-serif;
   text-align:center;
@@ -562,9 +576,14 @@ textarea {
 
 .news{
 width: 70%;
-margin: 0 auto;
+margin: 9% auto;
 border:1px solid gray;
 padding:4%;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.news:hover{
+  transform: scale(1.1);
 }
 
 .news-text{
