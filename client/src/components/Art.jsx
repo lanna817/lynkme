@@ -3,6 +3,7 @@ import CreatePosts from './CreatePosts';
 import PostList from './PostList';
 import { withRouter } from 'react-router';
 import { Link, Route } from 'react-router-dom';
+import { getAllPosts, createPost } from '../services/api-helper'
 
 
 class Art extends React.Component {
@@ -10,10 +11,43 @@ class Art extends React.Component {
     super(props);
     this.state = {
       artwork: [],
+      postForm: {
+        content: "",
+        image_url: "",
+        category: "",
+        is_Anon: false
+      } 
 
     }
   }
 
+  handleFormArtChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      postForm: {
+        ...prevState.postForm,
+        [name]: value
+      }
+    }))
+  }
+
+  createArtSubmit = async () => {
+    const newPost = await createPost(this.state.postForm);
+    this.setState(prevState => ({
+      posts: [
+        ...prevState.posts,
+        newPost
+      ],
+      postForm: {
+        content: "",
+        image_url: "",
+        category: "",
+        is_Anon: false
+      }
+    }));
+    this.props.history.push(`/art`)
+
+  }
 
 
   render() {
@@ -53,11 +87,24 @@ class Art extends React.Component {
             </div>
           </div>
         </div>
+        <button onclick={this.handleArtClick} id='add-artwork'>Add Artwork</button>
 
-        <h3 className='head-title'>Post a pic of your own <span className='art-color'>Art</span> or <span className='art-color'>art</span>work that you like…</h3>
+
+        <h3 className='head-title'>Post about <span className='art-color'>Art</span> or <span className='art-color'>art</span>work that you like…</h3>
         <h3 id='late-post'>Latest Posts...</h3>
         <div className='flex-post'>
 
+        <Route path='/art' render={() => (
+          <Art
+           handleArtFormChange={this.handleArtFormChange}
+            postForm={this.state.postForm}
+            artwork={this.state.artwork}
+            createArtSubmit={this.createArtSubmit}
+
+            />)} />
+          
+
+          
           <CreatePosts
             postForm={this.props.postForm}
             handleFormChange={this.props.handleFormChange}
@@ -65,6 +112,8 @@ class Art extends React.Component {
 
           <PostList
             posts={this.props.posts} />
+          
+
 
         </div>
 

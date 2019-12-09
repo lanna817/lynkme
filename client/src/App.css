@@ -228,7 +228,12 @@ label[for=log-username], [for=log-password] {
   grid-column-end: 3;
   grid-gap: 2em 4em;
   justify-items: center;
+}
 
+#add-artwork{
+  font-size: 2em;
+  padding: 2%;
+  margin: 1em;
 
 }
 
