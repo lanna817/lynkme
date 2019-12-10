@@ -10,11 +10,8 @@ export default function Header() {
           <img src={logo} alt='lynk-me logo' width='13%' height='auto' id='img-logo' />
           <a href='/home'>Home</a>
           <span className='nav-color'>
-            <a href='/art'>Art</a>
+            <a href='/art'>Buy<span className='nav-color'>Art</span>/Connect</a>
           </span>
-          <span className='nav-color'>
-            <a href='/connections'>Connections</a>  
-           </span> 
           <a href='/about'>About</a>
           <a href='/profile'>Profile</a>
         </nav>

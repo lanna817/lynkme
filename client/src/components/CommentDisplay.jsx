@@ -4,9 +4,10 @@ export default function CommentDisplay(props) {
 
   return (
     <div>
-      {props.commentBox.map(comment => (
+
+      {props.comments && props.comments.map(comment => (
         
-         <h3>{props.comment.content}</h3>
+         <h3>{comment.content}</h3>
       
       ))}
     </div>

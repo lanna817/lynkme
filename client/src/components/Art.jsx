@@ -1,76 +1,13 @@
 import React from 'react';
 import CreatePosts from './CreatePosts';
 import PostList from './PostList';
-import ArtWorkForm from './ArtWorkForm';
 import ArtPriceDisplay from './ArtPriceDisplay';
-import { withRouter } from 'react-router';
-import { Link, Route } from 'react-router-dom';
-import { getAllPosts } from '../services/api-helper'
+import { Link } from 'react-router-dom';
 
 
-class Art extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      artworks: []
-      // artForm: {
-      //   content: "",
-      //   image_url: "",
-      //   category: "",
-      //   is_Anon: false
-      // }
-
-    }
-  }
-
-  async componentDidMount() {
-    this.getAllArtWork();
-  }
-
-  getAllArtWork = async () => {
-    const artworks = await getAllPosts();
-    this.setState({
-      artworks
-    })
-  }
-
-  // handleFormArtChange = (e) => {
-  //   const { name, value } = e.target;
-  //   this.setState(prevState => ({
-  //     artForm: {
-  //       ...prevState.artForm,
-  //       [name]: value
-  //     }
-  //   }))
-  // }
-
-  // createArtSubmit = async () => {
-  //   const newArtWork = await createPost(this.state.artForm);
-  //   this.setState(prevState => ({
-  //     artworks: [
-  //       ...prevState.artworks,
-  //       newArtWork
-  //     ],
-  //     artForm: {
-  //       content: "",
-  //       image_url: "",
-  //       category: "",
-  //       is_Anon: false
-  //     }
-  //   }));
-  //   this.props.history.push(`/art`)
-
-  // }
-
-  // handleArtClick = (e) => {
-  //   e.preventDefault();
-  //   this.props.history.push('/artform')
-  // }
-
-
-  render() {
-
+export default function Art (props) {
     return (
+      
       <div className='art-pg'>
         <h3 id='buy-post'>Buy <span className='art-color'>Art</span></h3>
         <div className='grid-buy'>
@@ -119,31 +56,58 @@ class Art extends React.Component {
               </div>
             </div>
           </div>
+
+          {
+        props.artworks.map(artist => (
+          <div className='art-upload' key={artist.id}>
+            <div className='flip-card'>
+              <div className='flip-card-inner'>
+                <div className='flip-img-front'>
+                  {
+                    artist.image_url ? <img src={artist.image_url}  width='40%' alt='art or gig images' /> :
+                      <img src={'https://media.giphy.com/media/xTkcEQACH24SMPxIQg/source.gif'} width='30%' alt='hands tapping' />}
+                </div>
+                <div className='flip-black'>
+                  <p className='text-img'>{artist.content}</p>
+                  <p className='price-desc'>{artist.hashtags}</p>
+                  <h2>Price:{artist.category}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        ))
+      }
+         
+       
+          {/* <ArtPriceDisplay
+            
+            artworks={props.artworks}
+            
+          /> */}
+       
         </div>
+
+
 
 
         <Link to ={'/artform'}>
         <button  id='add-artwork'>Add <span className='art-color'>Art</span>work</button>
         </Link>
-
-        <h3 className='head-title'>Post about <span className='art-color'>Art</span> or <span className='art-color'>art</span>work that you like…</h3>
+        <h3 id='connect'>Connect </h3>
+        <h3 className='head-title'>Post about Gigs or <span className='art-color'>Art</span> in your area...</h3>
         <h3 id='late-post'>Latest Posts...</h3>
         <div className='flex-post'>
 
 
-          <ArtPriceDisplay
-            artworks={this.state.artworks}
-          
-
-          />
 
           <CreatePosts
-            postForm={this.props.postForm}
-            handleFormChange={this.props.handleFormChange}
-            createSubmit={this.props.createSubmit} />
+            postForm={props.postForm}
+            handleFormChange={props.handleFormChange}
+            createSubmit={props.createSubmit} />
 
           <PostList
-            posts={this.props.posts} />
+            posts={props.posts} />
 
 
 
@@ -152,6 +116,5 @@ class Art extends React.Component {
       </div>
     )
   }
-}
 
-export default withRouter(Art);
+

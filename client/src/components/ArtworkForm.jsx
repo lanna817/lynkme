@@ -13,7 +13,7 @@ export default function ArtworkForm(props){
           name="content"
           id="content"
           value={props.artForm.content}
-          onChange={props.handleArtChange }
+          onChange={props.handleFormArtChange}
         />
         <br />
         <label htmlFor="image_url">image_url:</label>
@@ -22,7 +22,7 @@ export default function ArtworkForm(props){
           name="image_url"
           id="image_url"
           value={props.artForm.image_url}
-          onChange={props.handleArtChange }
+          onChange={props.handleFormArtChange}
         />
         <label htmlFor="hashtags">Desc:</label>
         <textarea
@@ -30,7 +30,7 @@ export default function ArtworkForm(props){
           name="hashtags"
           id="hashtags"
           value={props.artForm.hashtags}
-          onChange={props.handleArtChange}
+          onChange={props.handleFormArtChange}
         />
         <br />
         <br />
@@ -40,11 +40,12 @@ export default function ArtworkForm(props){
           name="category"
           id="category"
           value={props.artForm.category}
-          onChange={props.handleArtChange }
+          onChange={props.handleFormArtChange }
         />
         <button id='submit-create'>Submit</button>
       </form>
     </div>
+    
   )
 }
 

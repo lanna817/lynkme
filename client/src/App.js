@@ -11,6 +11,8 @@ import PostPage from './components/PostPage';
 import Footer from './components/Footer';
 import ArtWorkForm from './components/ArtWorkForm';
 import Art from './components/Art';
+import Profile from './components/Profile';
+import UserEdit from './components/UserEdit';
 
 import {
   loginUser,
@@ -22,6 +24,8 @@ import {
   updatePost,
   getAllComments,
   getAllUsers,
+  updateUser,
+  destroyUser,
   createComment,
   getAllArtists,
   getOneArt,
@@ -54,16 +58,23 @@ class App extends React.Component {
         user_id: '',
         post_id: ''
       },
+      users: [],
+      ownerPro: null,
+      userForm: {
+        username: "",
+        email: "",
+        description: "",
+        image_url: ""
+      },
       artists: [],
       events: [],
       artworks: [],
       artForm: {
         content: "",
         image_url: "",
-        category: "",
-        is_Anon: false
+        hashtags: "",
+        category: ""
       }
-
     };
   }
   async componentDidMount() {
@@ -72,7 +83,6 @@ class App extends React.Component {
     this.getAllArt();
     this.getAllUsers();
     this.getEvents();
-    this.getAllArtWork();
     if (currentUser) {
       this.setState({ currentUser })
     }
@@ -82,13 +92,6 @@ class App extends React.Component {
     const posts = await getAllPosts();
     this.setState({
       posts
-    })
-  }
-
-  getAllUsers = async () => {
-    const users = await getAllUsers();
-    this.setState({
-      users
     })
   }
 
@@ -184,6 +187,13 @@ class App extends React.Component {
         hashtags: "",
         category: "",
         is_Anon: false
+      },
+      artworks: [],
+      artForm: {
+        content: "",
+        image_url: "",
+        category: "",
+        is_Anon: false
       }
     }));
     this.props.history.push(`/art`)
@@ -218,16 +228,8 @@ class App extends React.Component {
     this.props.history.push(`/posts/${id}`)
   }
 
-  // ============================Post ArtWork==========================
-
-  getAllArtWork = async () => {
-    const artworks = await getAllPosts();
-    this.setState({
-      artworks
-    })
-  }
-
-  handleArtChange = (e) => {
+  // ===============================ART====================================
+  handleFormArtChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
       artForm: {
@@ -254,7 +256,6 @@ class App extends React.Component {
     this.props.history.push(`/art`)
 
   }
-
 
   // ==================================AUTH=====================
 
@@ -292,7 +293,57 @@ class App extends React.Component {
     }));
   }
 
-  // =====================  ========================================
+  // ===================== Users ========================================
+
+  editUserSubmit = async (id) => {
+    const updatedUserForm = await updateUser(id, this.state.userForm);
+    this.setState(prevState => ({
+      users: prevState.users.map(user => {
+        return user.id === parseInt(id) ? updatedUserForm : user
+      })
+    }));
+    this.props.history.push(`/users/${id}`)
+  }
+
+
+  deleteUser = async (id) => {
+    await destroyUser(id);
+    this.setState(prevState => ({
+      users: prevState.users.filter(user => user.id !== id)
+    }))
+    this.props.history.push(`/users`)
+  }
+
+  handleUserFormChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      userForm: {
+        ...prevState.userForm,
+        [name]: value
+      }
+    }))
+  }
+
+  getAllUsers = async () => {
+    const users = await getAllUsers();
+    this.setState({
+      users
+    })
+  }
+
+  setUserEdit = (data) => {
+    const { username, email, description, image_url } = data;
+    this.setState({
+      userForm: {
+        username:'',
+        email:'',
+        description:'',
+        image_url:''
+      }
+    });
+    // this.props.history.push(`/profile`);
+  }
+  // ============================================
 
   render() {
     return (
@@ -337,6 +388,7 @@ class App extends React.Component {
             handleCommentChange={this.handleCommentChange}
             handleCommentSubmit={this.handleCommentSubmit}
             commentBox={this.state.commentBox}
+            comments={this.state.comments}
 
           />
         }} />
@@ -351,25 +403,52 @@ class App extends React.Component {
             editSubmit={this.editSubmit} />
         }} />
 
-{/* ==================ART =========================================== */}
+        {/* ==================ART =========================================== */}
 
         <Route path='/art' render={() => (
           <Art
-            handleArtChange={this.handleArtChange}
-            artForm={this.state.artForm}
+            handleFormChange={this.handleFormChange}
+            postForm={this.state.postForm}
+            posts={this.state.posts}
+            createSubmit={this.createSubmit}
             artworks={this.state.artworks}
-            createArtSubmit={this.createArtSubmit}
 
           />)} />
 
         <Route path='/artform' render={(props) => (
           <ArtWorkForm
-            handleArtChange={this.handleArtChange}
+            handleFormArtChange={this.handleFormArtChange}
             artForm={this.state.artForm}
-            artworks={this.state.artworks}
             createArtSubmit={this.createArtSubmit}
 
           />)} />
+
+
+        {/* ======================================================== */}
+
+        <Route path='/profile' render={(props) => {
+          const userId = props.match.params.id;
+          const currentProfile = this.state.users.map(user => user.id === parseInt(userId));
+          return <Profile
+            currentUser={this.state.currentUser}
+            currentProfile={currentProfile}
+            setUserEdit={this.setUserEdit}
+
+          />
+        }} />
+
+
+        <Route path='/users/:id/edit' render={(props) => {
+          const userId = props.match.params.id;
+          return <UserEdit
+            userId={userId}
+            userForm={this.state.userForm}
+            handleUserFormChange={this.handleUserFormChange}
+            editUserSubmit={this.editUserSubmit}
+            
+         
+          />
+        }} />
 
 
         {

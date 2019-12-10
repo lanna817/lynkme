@@ -32,7 +32,27 @@ export const verifyUser = async () => {
 }
 
 
-// =========================CRUD POST===================================
+
+
+// =====================CRUD USERS==================================================
+
+
+export const getAllUsers = async () => {
+  const resp = await api.get(`/users`);
+  return resp.data
+}
+
+export const updateUser = async (id , data) => {
+  const resp = await api.get(`/users/${id}`, data )
+  return resp.data
+}
+
+export const destroyUser = async (id) => {
+  const resp = await api.delete(`/users/${id}`)
+  return resp.data
+}
+
+// =========================CRUD POST=================================================
 
 export const createPost = async (data) => {
   const resp = await api.post('/posts', { post: data })
@@ -78,14 +98,6 @@ export const getAllComments = async (id) => {
   const resp = await api.get(`/posts/${id}/comments`)
   return resp.data
 }
-
-
-// =================USERS========================================
-export const getAllUsers = async () => {
-  const resp = await api.get(`/users`)
-  return resp.data
-}
- 
 
 // =================Local Artist======================================
 export const getAllArtists = async () => {

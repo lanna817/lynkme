@@ -7,7 +7,7 @@ export default function CreatePosts(props) {
         e.preventDefault();
         props.createSubmit();
       }}>
-          <p id='create-title'>Post</p>
+      
         <label htmlFor="content">Content:</label>
         <textarea
           name="content"
@@ -16,7 +16,7 @@ export default function CreatePosts(props) {
           onChange={props.handleFormChange}
         />
         <br />
-        <label htmlFor="image_url">image_url:</label>
+        <label htmlFor="image_url">Image Link:</label>
         <input
           type="text"
           name="image_url"
@@ -33,16 +33,7 @@ export default function CreatePosts(props) {
           value={props.postForm.hashtags}
           onChange={props.handleFormChange}
         />
-        <br />
-        <label htmlFor="category">Category:</label>
-        <input
-          type="text"
-          name="category"
-          id="category"
-          value={props.postForm.category}
-          onChange={props.handleFormChange}
-        />
-        <button id='submit-create'>Submit</button>
+        <button id='submit-create'>Upload</button>
       </form>
     </div>
     

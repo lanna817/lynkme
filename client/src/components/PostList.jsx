@@ -16,7 +16,6 @@ export default function PostList(props) {
               <div className='text-flex'>
             <p className='text-cont'>{post.content}</p>
             <p className='hashtag'>{post.hashtags}</p>
-                <p className='cate'>{post.category}</p>
                 </div>
       </Link>
       </div>

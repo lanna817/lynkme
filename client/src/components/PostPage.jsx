@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from './Comment';
+import CommentDisplay from './CommentDisplay';
 
 
 
@@ -21,7 +22,6 @@ export default function PostPage(props) {
 
             <p className='post-cont'>{currentPost.content}</p>
             <p className='post-hashtag'>{currentPost.hashtags}</p>
-            <p>{currentPost.category}</p>
             <button id='delete-btn' onClick={() => {
               props.deletePost(currentPost.id)
             }}>Delete</button>
@@ -39,7 +39,12 @@ export default function PostPage(props) {
         handleCommentSubmit={props.handleCommentSubmit}
         commentBox={props.commentBox}
         
-     />
+      />
+      
+      <CommentDisplay
+        postId={props.postId}
+        comments={props.comments}
+        commentBox={props.commentBox}/>
         
     </div>
   )
