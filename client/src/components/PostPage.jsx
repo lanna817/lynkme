@@ -42,7 +42,6 @@ export default function PostPage(props) {
           deleteComment={props.deleteComment}/>
 
 
-        />
 
 
       </div>

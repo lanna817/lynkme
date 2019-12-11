@@ -286,17 +286,6 @@ p a:hover{
 }
 
 
-.post-container{
-  display:grid;
-  grid-template-rows: 1fr 1fr;
-  justify-items: center;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  
-  width: 60%;
-
-}
-
 #add-postbtn{
   font-size: 2em;
   padding: 2%;
@@ -310,6 +299,7 @@ p a:hover{
   border: 0.1px solid rgba(0, 0, 0, 0.3);
   margin-top: 5%;
   box-shadow: 0 8px 16px 0 rgba(152, 36, 168, 0.2);
+  
 }
 
 .post-ind:hover{
@@ -327,11 +317,10 @@ p a:hover{
   flex-direction: row-reverse;
 }
 
-/* .flex-post {
-  display: flex;
-  flex-direction: row;
-
-} */
+.flex-post{
+  display:flex;
+  justify-content:center;
+}
 
 .text-flex{
   width: 50%;
@@ -362,7 +351,8 @@ p{
 .post-cont{
   font-family: 'Tillana', cursive;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  width:50%;
 }
 
 .post-hashtag{

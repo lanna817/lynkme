@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function PostList(props) {
   return (
-    <div className='post-container'>
+    <div className='post-cont'>
     <div className='post-list'>
       {
         props.posts.map(post => (

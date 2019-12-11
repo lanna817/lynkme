@@ -125,13 +125,12 @@ export default function Art(props) {
       </Link>
         <h3 id='connect'>Connect </h3>
         <h3 className='head-title'>Post about Gigs or <span className='art-color'>Art</span> in your area...</h3>
-        <h3 id='late-post'>Latest Posts...</h3>
-        <div className='flex-post'>
           <Link to={'/createpost'}>
             <div className='btn-cont'>
               <button id='add-postbtn'>Add Post</button>
             </div>
           </Link>
+        <div className='flex-post'>
 
           <PostList
             posts={props.posts} />
