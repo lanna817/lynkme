@@ -756,6 +756,7 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 
 }
 
+
 .pro-image{
   margin:3%;
   display:flex;
@@ -794,11 +795,17 @@ justify-content:center;
 
 .about-pg{
   border: 1px solid gray;
-  width:50%;
+  width:40%;
   margin:0 auto;
   margin-top: 7%;
-  padding: 10%;
+  padding: 4%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+
+}
+#yoh{
+  text-align:center;
+  font-family: 'Tillana', cursive;
+  font-size: 3em;
 
 }
 
@@ -806,6 +813,9 @@ justify-content:center;
   font-family: 'Lato', sans-serif;
 }
 
+#me{
+  margin-left: 30%;
+}
 
 /* ============Media Queries================ */
 
