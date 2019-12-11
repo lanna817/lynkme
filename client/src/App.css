@@ -12,7 +12,7 @@ nav{
   padding: 0.4em;
   align-items: center;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.3em;
+  font-size: 1.5em;
   background-image:url('./images/paint.jpg');
   background-size:cover;
   background-position:center;
@@ -261,7 +261,7 @@ p a:hover{
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-start: 1;
   grid-column-end: 3;
-  grid-gap: 2em 4em;
+  grid-gap: 4em 4em;
   justify-items: center;
 
 }
@@ -311,25 +311,25 @@ p a:hover{
 .post-list{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em 4em;
+  grid-gap: 2em 2em;
   justify-items: center;
   grid-column-start: 1;
   grid-column-end: 3;
-  width:100%;
 }
 
 
 .post-ind {
-  padding: 0.8%;
+  padding: 5%;
   border: 0.1px solid rgba(0, 0, 0, 0.3);
   margin-top: 5%;
   box-shadow: 0 8px 16px 0 rgba(152, 36, 168, 0.2);
+  width:90%;
 }
 
 .post-ind:hover{
   animation: pulse 1.15s infinite cubic-bezier(0.66, 0, 0, 1);
   transform: scale(1.1);
-  cursor: pointer;
+  cursor: pointe
 
 
 }
@@ -347,7 +347,7 @@ p a:hover{
 }
 
 .text-flex{
-  width: 50%;
+  width: 40%;
   margin-left: 0;
 }
 
@@ -748,7 +748,7 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 
 .profile-box{
   border: 0.8px solid black;
-  width: 60%;
+  width: 30%;
   margin: 0 auto;
   padding: 8%;
   margin-top: 5%;
@@ -790,6 +790,20 @@ font-weight:bold;
 .edel-btn{
 display:flex;
 justify-content:center;
+}
+
+.about-pg{
+  border: 1px solid gray;
+  width:50%;
+  margin:0 auto;
+  margin-top: 7%;
+  padding: 10%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+
+}
+
+#about-txt{
+  font-family: 'Lato', sans-serif;
 }
 
 

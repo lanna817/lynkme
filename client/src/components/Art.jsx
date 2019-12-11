@@ -15,7 +15,7 @@ export default function Art(props) {
         <div className='flip-card'>
           <div className='flip-card-inner'>
             <div className='flip-img-front'>
-              <img src={"https://files.slack.com/files-pri/T0351JZQ0-FRJ7PM9S9/october_research-shanshan_wang.jpg"} width='100%' height="100%" alt='mountains' />
+              <img src={"https://files.slack.com/files-pri/T0351JZQ0-FRJ7PM9S9/october_research-shanshan_wang.jpg"} width='100%' height="100%" alt='woman searching' />
             </div>
 
             <div className='flip-back'>
@@ -30,7 +30,7 @@ export default function Art(props) {
         <div className='flip-card'>
           <div className='flip-card-inner'>
             <div className='flip-img-front'>
-              <img src={'https://files.slack.com/files-pri/T0351JZQ0-FR6P2E6TD/the_garden_of_forking_paths_01-shanshan_wang.jpg'} width='100%' height="100%" alt='mountains' />
+              <img src={'https://files.slack.com/files-pri/T0351JZQ0-FR6P2E6TD/the_garden_of_forking_paths_01-shanshan_wang.jpg'} width='100%' height="100%" alt='garden' />
             </div>
             <div className='flip-back'>
               <h3 className='text-img'>SHANSHAN WANG<br />The Garden of Forking Paths 01</h3>

@@ -14,6 +14,7 @@ import Art from './components/Art';
 import Profile from './components/Profile';
 import UserEdit from './components/UserEdit';
 import CreatePosts from './components/CreatePosts';
+import About from './components/About';
 
 import {
   loginUser,
@@ -489,15 +490,19 @@ class App extends React.Component {
           />
         }} />
 
+        <Route exact path="/about" component={About} />
 
-        {
-          this.state.currentUser ?
-            <Footer /> : <></>
-        }
+
+
+
+          {
+            this.state.currentUser ?
+              <Footer /> : <></>
+          }
 
       </div>
-
-    );
+  
+      );
+    }
   }
-}
-export default withRouter(App);
+  export default withRouter(App);

@@ -38,7 +38,7 @@ export default function ArtworkForm(props){
         <input
           type="text"
           name="category"
-          id="art-category"
+          id="category"
           value={props.artForm.category}
           onChange={props.handleFormArtChange }
         />

@@ -13,8 +13,8 @@ export default function Header() {
           <span className='nav-color'>
             <a href='/art'>Buy<span className='nav-color'> Art</span> & Connect</a>
           </span>
-          <a href='/about'>About</a>
           <a href='/profile'>Profile</a>
+          <a href='/about'>About</a>
         </nav>
       </header>
     </div>

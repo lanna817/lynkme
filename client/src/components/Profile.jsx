@@ -20,7 +20,7 @@ export default function Profile(props) {
               {
                   currentUser.image_url ?
                 <img src={currentUser.image_url} width='50%' id='post-pic' alt='profile-images' /> :
-                <img src={'https://media.giphy.com/media/xTkcEQACH24SMPxIQg/source.gif'} width='60%' alt='hands tapping' /> }
+                <img src={'https://media.giphy.com/media/3sbpxvIWsRI2hn8TvO/source.gif'} width='60%' alt='hands tapping' /> }
             </div>
         
                <h3 id='user-display'>{currentUser.username}</h3>
