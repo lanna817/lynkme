@@ -9,7 +9,6 @@ import Home from './components/Home';
 import PostEdit from './components/PostEdit';
 import PostPage from './components/PostPage';
 import Footer from './components/Footer';
-import ArtWorkForm from './components/ArtWorkForm';
 import Art from './components/Art';
 import Profile from './components/Profile';
 import UserEdit from './components/UserEdit';
@@ -71,13 +70,7 @@ class App extends React.Component {
       },
       artists: [],
       events: [],
-      artworks: [],
-      artForm: {
-        content: "",
-        image_url: "",
-        hashtags: "",
-        category: ""
-      }
+      artworks: []
     };
   }
   async componentDidMount() {
@@ -249,33 +242,6 @@ class App extends React.Component {
   }
 
   // ===============================ART====================================
-  handleFormArtChange = (e) => {
-    const { name, value } = e.target;
-    this.setState(prevState => ({
-      artForm: {
-        ...prevState.artForm,
-        [name]: value
-      }
-    }))
-  }
-
-  createArtSubmit = async () => {
-    const newArtWork = await createPost(this.state.artForm);
-    this.setState(prevState => ({
-      artworks: [
-        ...prevState.artworks,
-        newArtWork
-      ],
-      artForm: {
-        content: "",
-        image_url: "",
-        category: "",
-        is_Anon: false
-      }
-    }));
-    this.props.history.push(`/art`)
-
-  }
 
   // ==================================AUTH=====================
 
@@ -317,15 +283,6 @@ class App extends React.Component {
 
   editUserSubmit = async (id) => {
     const updatedUserForm = await updateUser(id, this.state.userForm);
-    // this.setState({
-    //   userForm: {
-    //     username: updatedUserForm.username,
-    //     email: updatedUserForm.email,
-    //     description: updatedUserForm.description,
-    //     image_url: updatedUserForm.image_url
-
-    //   }
-    // })
     this.setState(prevState => ({
       users: prevState.users.map(user => {
         return user.id === parseInt(id) ? updatedUserForm : user
@@ -450,14 +407,6 @@ class App extends React.Component {
             posts={this.state.posts}
             createSubmit={this.createSubmit}
             artworks={this.state.artworks}
-
-          />)} />
-
-        <Route path='/artform' render={(props) => (
-          <ArtWorkForm
-            handleFormArtChange={this.handleFormArtChange}
-            artForm={this.state.artForm}
-            createArtSubmit={this.createArtSubmit}
 
           />)} />
 

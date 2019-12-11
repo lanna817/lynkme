@@ -1,7 +1,5 @@
 import React from 'react';
-import CreatePosts from './CreatePosts';
 import PostList from './PostList';
-import ArtPriceDisplay from './ArtPriceDisplay';
 import { Link, Route } from 'react-router-dom';
 
 
@@ -105,31 +103,15 @@ export default function Art(props) {
             </div>
           </div>
         </div>
-
-
-        <ArtPriceDisplay
-
-          artworks={props.artworks}
-
-        />
-
-      </div>
-
-
-
-
-      <Link to={'/artform'}>
-        <div className='btn-cont'>
-          <button id='add-artwork'>Add <span className='art-color'>Art</span>work</button>
-          </div>
-      </Link>
+      </div >
+    <>
         <h3 id='connect'>Connect </h3>
         <h3 className='head-title'>Post about Gigs or <span className='art-color'>Art</span> in your area...</h3>
-          <Link to={'/createpost'}>
-            <div className='btn-cont'>
-              <button id='add-postbtn'>Add Post</button>
-            </div>
-          </Link>
+        <Link to={'/createpost'}>
+          <div className='btn-cont'>
+            <button id='add-postbtn'>Add Post</button>
+          </div>
+        </Link>
         <div className='flex-post'>
 
           <PostList
@@ -140,8 +122,8 @@ export default function Art(props) {
 
 
         </div >
-
-    </div >
+</>
+      </div>
       )
     }
     
