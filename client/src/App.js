@@ -27,6 +27,7 @@ import {
   updateUser,
   destroyUser,
   createComment,
+  deleteComment,
   getAllArtists,
   getOneArt,
   getAllEvents,
@@ -230,6 +231,14 @@ class App extends React.Component {
     this.props.history.push(`/posts/${id}`)
   }
 
+   deleteComment = async (id) => {
+    await deleteComment(id);
+    this.setState(prevState => ({
+      comments: prevState.comments.filter(comment => comment.id !== id)
+    }))
+    this.props.history.push(`/posts/${id}`)
+   }
+  
   getComments = async (postId) => {
     const comments = await getAllComments(postId);
     this.setState({
@@ -407,6 +416,7 @@ class App extends React.Component {
             handleCommentSubmit={this.handleCommentSubmit}
             commentBox={this.state.commentBox}
             comments={this.state.comments}
+            deleteComment={this.deleteComment}
 
           />
         }} />
@@ -423,7 +433,7 @@ class App extends React.Component {
 
         {/* ==================ART =========================================== */}
 
-        <Route path='/art' render={() => (
+        <Route path='/art' render={(props) => (
           <Art
             handleFormChange={this.handleFormChange}
             postForm={this.state.postForm}

@@ -99,6 +99,11 @@ export const getAllComments = async (post_id) => {
   return resp.data
 }
 
+export const deleteComment = async (post_id, id) => {
+  const resp = await api.delete(`/posts/${post_id}/comments/${id}`)
+  return resp.data
+}
+
 // =================Local Artist======================================
 export const getAllArtists = async () => {
   const resp = await api.get(`/localart`)

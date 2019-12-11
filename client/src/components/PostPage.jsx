@@ -39,6 +39,8 @@ export default function PostPage(props) {
           handleCommentChange={props.handleCommentChange}
           handleCommentSubmit={props.handleCommentSubmit}
           commentBox={props.commentBox}
+          deleteComment={props.deleteComment}/>
+
 
         />
 
@@ -48,7 +50,8 @@ export default function PostPage(props) {
         userId={props.userId}
         postId={props.postId}
         comments={props.comments}
-        commentBox={props.commentBox} />
+        commentBox={props.commentBox}
+        deleteComment={props.deleteComment}/>
     </>
   )
 }
