@@ -337,7 +337,10 @@ class App extends React.Component {
       <div className="app">
         {
           this.state.currentUser ?
-            <Header />
+          <>
+            <Header />  <p id='wel-user'>Welcome {this.state.currentUser.username}!</p>
+              <button id='logout-btn' onClick={this.handleLogout}>logout</button>
+            </>
             : <></>
         }
 

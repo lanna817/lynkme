@@ -8,15 +8,6 @@ import { Link } from 'react-router-dom';
 export default function Home(props) {
   return (
     <div className='home'>
-      {props.currentUser
-        ?
-        <>
-          <p id='wel-user'>Welcome {props.currentUser.username}!</p>
-          <button id='logout-btn' onClick={props.handleLogout}>logout</button>
-        </>
-        :
-        <div><h1>You need to log in to do that</h1></div>
-      }
       <div id='web-desc'>
       <h3>Find local <span className='art-color'>Art</span>ists in your area.
             Post Your <span className='art-color'>Art</span>.

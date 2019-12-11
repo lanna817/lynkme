@@ -309,7 +309,7 @@ p a:hover{
 .post-list{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em 3em;
+  grid-gap: 1em 2em;
   justify-items: center;
   
 }
