@@ -43,7 +43,8 @@ class App extends React.Component {
       authFormData: {
         username: '',
         email: '',
-        password: ''
+        password: '',
+        image_url: ''
 
       },
       posts: [],
@@ -368,6 +369,7 @@ class App extends React.Component {
 
           return <PostPage
             postId={postId}
+            currentUser={this.state.currentUser}
             setEdit={this.setEdit}
             deletePost={this.deletePost}
             currentPost={currentPost}
@@ -444,14 +446,14 @@ class App extends React.Component {
 
 
 
-          {
-            this.state.currentUser ?
-              <Footer /> : <></>
-          }
+        {
+          this.state.currentUser ?
+            <Footer /> : <></>
+        }
 
       </div>
-  
-      );
-    }
+
+    );
   }
-  export default withRouter(App);
+}
+export default withRouter(App);

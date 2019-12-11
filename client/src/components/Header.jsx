@@ -16,6 +16,7 @@ export default function Header() {
           <a href='/profile'>Profile</a>
           <a href='/about'>About</a>
         </nav>
+        
       </header>
     </div>
   )

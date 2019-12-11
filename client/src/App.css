@@ -87,7 +87,7 @@ nav a:hover{
   margin-bottom: 5%;
 }
 
-#username,#email, input[type=password] {
+#username,#email, #imagereg_url, input[type=password] {
   margin: 2em;
   padding:2% 10%;
 }
@@ -98,7 +98,7 @@ input[type=text]:hover, input[type=password]:hover{
 
 }
 
-label[for=username],[for=password], [for=email]  {
+label[for=username],[for=password], [for=email], [for=image_url]  {
   font-size: 1em;
   margin: 1.5em;
 }
@@ -297,8 +297,6 @@ p a:hover{
 
 .post-container{
   width: 30%;
- 
-
 }
 
 #add-postbtn{
@@ -311,10 +309,9 @@ p a:hover{
 .post-list{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em 2em;
+  grid-gap: 2em 3em;
   justify-items: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
+  
 }
 
 
