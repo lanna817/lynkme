@@ -42,8 +42,8 @@ export const getAllUsers = async () => {
   return resp.data
 }
 
-export const updateUser = async (id , data) => {
-  const resp = await api.get(`/users/${id}`, data )
+export const updateUser = async (id, data) => {
+  const resp = await api.put(`/users/${id}`, data)
   return resp.data
 }
 
@@ -94,8 +94,8 @@ export const createComment = async (postId, userId, data) => {
   return resp.data
 }
 
-export const getAllComments = async (id) => {
-  const resp = await api.get(`/posts/${id}/comments`)
+export const getAllComments = async (post_id) => {
+  const resp = await api.get(`/posts/${post_id}/comments`)
   return resp.data
 }
 

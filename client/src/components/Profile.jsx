@@ -6,7 +6,7 @@ import UserEdit from './UserEdit';
 
 export default function Profile(props) {
   const { currentUser } = props;
-  
+  console.log(currentUser)
   return (
     
   <div className='profile-pg'>

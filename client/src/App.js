@@ -83,6 +83,7 @@ class App extends React.Component {
     this.getAllArt();
     this.getAllUsers();
     this.getEvents();
+    this.getComments();
     if (currentUser) {
       this.setState({ currentUser })
     }
@@ -108,6 +109,7 @@ class App extends React.Component {
       art
     })
   }
+
 
 
   getEvents = async (id) => {
@@ -228,6 +230,13 @@ class App extends React.Component {
     this.props.history.push(`/posts/${id}`)
   }
 
+  getComments = async (postId) => {
+    const comments = await getAllComments(postId);
+    this.setState({
+      comments
+    })
+  }
+
   // ===============================ART====================================
   handleFormArtChange = (e) => {
     const { name, value } = e.target;
@@ -297,6 +306,15 @@ class App extends React.Component {
 
   editUserSubmit = async (id) => {
     const updatedUserForm = await updateUser(id, this.state.userForm);
+    // this.setState({
+    //   userForm: {
+    //     username: updatedUserForm.username,
+    //     email: updatedUserForm.email,
+    //     description: updatedUserForm.description,
+    //     image_url: updatedUserForm.image_url
+
+    //   }
+    // })
     this.setState(prevState => ({
       users: prevState.users.map(user => {
         return user.id === parseInt(id) ? updatedUserForm : user
@@ -335,13 +353,13 @@ class App extends React.Component {
     const { username, email, description, image_url } = data;
     this.setState({
       userForm: {
-        username:'',
-        email:'',
-        description:'',
-        image_url:''
+        username,
+        email,
+        description,
+        image_url
       }
     });
-    // this.props.history.push(`/profile`);
+    this.props.history.push(`/users/${data.id}/edit`);
   }
   // ============================================
 
@@ -434,19 +452,22 @@ class App extends React.Component {
             currentProfile={currentProfile}
             setUserEdit={this.setUserEdit}
 
+
           />
         }} />
 
 
         <Route path='/users/:id/edit' render={(props) => {
-          const userId = props.match.params.id;
+          const userId = props.match.params.id
+
           return <UserEdit
             userId={userId}
+            setUserEdit={this.setUserEdit}
             userForm={this.state.userForm}
             handleUserFormChange={this.handleUserFormChange}
             editUserSubmit={this.editUserSubmit}
-            
-         
+
+
           />
         }} />
 

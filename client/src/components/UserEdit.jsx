@@ -7,38 +7,38 @@ export default function UserEdit(props) {
       e.preventDefault();
       props.editUserSubmit(props.userId);
     }}>
-      <label htmlFor="content">Content</label>
+      <label htmlFor="username">Username</label>
       <textarea
-        name="content"
+        name="username"
         id="content-edt"
-        value={props.userForm.content}
+        value={props.userForm.username}
         onChange={props.handleUserFormChange}
       />
       <br />
-      <label htmlFor="image_url">image_url</label>
+      <label htmlFor="image_url">email</label>
+      <input
+        type="text"
+        name="email"
+        id="image_url-edt"
+        value={props.userForm.email}
+        onChange={props.handleUserFormChange}
+      />
+      <br />
+      <label htmlFor="hashtags">description</label>
+      <input
+        type="text"
+        name="description"
+        id="hashtags-edt"
+        value={props.userForm.description}
+        onChange={props.handleUserFormChange}
+      />
+      <br />
+      <label htmlFor="category">image_url</label>
       <input
         type="text"
         name="image_url"
-        id="image_url-edt"
-        value={props.userForm.image_url}
-        onChange={props.handleUserFormChange}
-      />
-      <br />
-      <label htmlFor="hashtags">Hashtags</label>
-      <input
-        type="text"
-        name="hashtags"
-        id="hashtags-edt"
-        value={props.userForm.hashtags}
-        onChange={props.handleUserFormChange}
-      />
-      <br />
-      <label htmlFor="category">Category</label>
-      <input
-        type="text"
-        name="category"
         id="category-edt"
-        value={props.userForm.category}
+        value={props.userForm.image_url}
         onChange={props.handleUserFormChange}
       />
       <button id='submit'>Submit</button>

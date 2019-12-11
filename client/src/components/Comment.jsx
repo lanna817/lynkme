@@ -7,7 +7,7 @@ export default function Comment(props) {
       <form id='create-comment' onSubmit={(e) => {
         e.preventDefault();
        
-        props.handleCommentSubmit(props.postId, props.userId, props.commentBox);
+        props.handleCommentSubmit(props.postId, props.userId,  props.commentBox);
       }}>
         <label htmlFor="content">Comment</label>
         <textarea
