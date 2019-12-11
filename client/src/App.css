@@ -196,9 +196,15 @@ label[for=log-username], [for=log-password] {
 }
 
 .form-cont{
-  margin-top: 0;
-  margin-left: 2%;
+  margin: 0 auto;
   width:50%;
+  margin-top:7%;
+}
+
+#fill-out{
+  text-align:center;  
+   font-family: 'Josefin Sans', sans-serif;
+
 }
 
 #buy-post, #connect{
@@ -230,7 +236,10 @@ p a:hover{
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
   border-radius: 5px;
-  width: 30%;
+  border: 0.7px solid;
+  padding:5%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+
 
 }
 
@@ -286,6 +295,12 @@ p a:hover{
 }
 
 
+.post-container{
+  width: 30%;
+ 
+
+}
+
 #add-postbtn{
   font-size: 2em;
   padding: 2%;
@@ -293,13 +308,22 @@ p a:hover{
 
 }
 
+.post-list{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em 4em;
+  justify-items: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width:100%;
+}
+
 
 .post-ind {
-  padding: 0.6%;
+  padding: 0.8%;
   border: 0.1px solid rgba(0, 0, 0, 0.3);
   margin-top: 5%;
   box-shadow: 0 8px 16px 0 rgba(152, 36, 168, 0.2);
-  
 }
 
 .post-ind:hover{
@@ -317,9 +341,9 @@ p a:hover{
   flex-direction: row-reverse;
 }
 
-.flex-post{
-  display:flex;
-  justify-content:center;
+
+.post-container{
+  width:100%;
 }
 
 .text-flex{
@@ -340,7 +364,13 @@ p{
   font-size: 1em;
 }
 
+label[for=content-comment]{
+  font-size: 0.99em;
+}
 
+#comment-name{
+  font-size:1.5em
+}
 
 .hashtag{
   font-family: 'Josefin Sans', sans-serif;
@@ -351,8 +381,7 @@ p{
 .post-cont{
   font-family: 'Tillana', cursive;
   font-weight: bold;
-  font-size: 1.2em;
-  width:50%;
+  font-size: 1.4em;
 }
 
 .post-hashtag{
@@ -361,7 +390,7 @@ p{
 }
 
 .post-img{
-  padding: 2%;
+  padding: 5%;
 }
 
 .cate{
@@ -378,12 +407,45 @@ p{
   cursor: pointer;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+
+}
+
+.comment-sec{
+  border: 1px solid gray;
+  width: 60%;
+  text-align:center;
+  margin: 0 auto;
+  margin-top:8%;
+
+}
+
+#post-page-submit{
+  padding:5%;
+  font-size:1.3em;
+
+}
+
+.comment-cont{
+  margin:2%;
 }
 
 #post-edit-form{
-  border: 1px solid black;
-  margin: 5%;
-  width: 50%;
+  border: 0.2px solid black;
+    width: 50%;
+    margin-left: 5%;
+    margin: 0 auto;
+    margin-top: 4%;
+    padding: 5%;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+}
+
+#post-edsubmit{
+  font-size:1.7em;
+  margin: 0.5em;
 }
 
 /* ====post edit form input styling==== */
@@ -409,19 +471,24 @@ p{
 }
 
 #delete-btn, #edit-btn{
-  margin-left: 10%;
-  font-size: 1.3em;
+  font-size: 1.9em;
+  padding:5%;
   background-color: black;
   color:white;
+  margin:2%;
 }
 
 #delete-btn:hover, #edit-btn:hover {
   background-color:#9824A8;
   color: black;
   cursor: pointer;
-
 }
 
+.post-btncont{
+display:flex;
+justify-content:center;
+
+}
 
 
 label[for=content], [for=image_url],[for=hashtags],[for=category]{

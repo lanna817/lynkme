@@ -32,7 +32,7 @@ export default function PostEdit(props) {
         value={props.postForm.hashtags}
         onChange={props.handleFormChange}
       />
-      <button id='submit'>Submit</button>
+      <button id='post-edsubmit'>Submit</button>
     </form>
   </div>
 

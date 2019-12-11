@@ -8,9 +8,7 @@ export default function Header() {
     <div className='home'>
       <header>
         <nav>
-          <Link to ='/home'>
             <img src={logo} alt='lynk-me logo' width='13%' height='auto' id='img-logo' />
-            </Link>
           <a href='/home'>Home</a>
           <span className='nav-color'>
             <a href='/art'>Buy<span className='nav-color'> Art</span> & Connect</a>

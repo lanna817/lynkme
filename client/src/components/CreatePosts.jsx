@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function CreatePosts(props) {
   return (
+  <>
+    <h2 id='fill-out'>Fill out the form below to post something fancyyy</h2>
     <div className='form-cont'>
       <form id='create-post' onSubmit={(e) => {
         e.preventDefault();
@@ -36,6 +38,7 @@ export default function CreatePosts(props) {
         <button id='submit-create'>Upload</button>
       </form>
     </div>
-    
+    </>
+
   )
 }

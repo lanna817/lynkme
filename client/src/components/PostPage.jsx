@@ -22,12 +22,14 @@ export default function PostPage(props) {
 
               <p className='post-cont'>{currentPost.content}</p>
               <p className='post-hashtag'>{currentPost.hashtags}</p>
+              <div className='post-btncont'>
               <button id='delete-btn' onClick={() => {
                 props.deletePost(currentPost.id)
               }}>Delete</button>
               <button id='edit-btn' onClick={() => {
                 props.setEdit(currentPost);
               }}>Edit</button>
+              </div>
 
 
             </>

@@ -9,11 +9,11 @@ export default function Comment(props) {
        
         props.handleCommentSubmit(props.postId, props.userId,  props.commentBox);
       }}>
-        <label htmlFor="content">Comment</label>
+        <label htmlFor="content-comment">Comment</label>
         <textarea
 
           name="content"
-          id="content"
+          id="comment-name"
           value={props.commentBox.content}
           onChange={props.handleCommentChange}
         />
