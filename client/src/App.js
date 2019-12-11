@@ -13,6 +13,7 @@ import ArtWorkForm from './components/ArtWorkForm';
 import Art from './components/Art';
 import Profile from './components/Profile';
 import UserEdit from './components/UserEdit';
+import CreatePosts from './components/CreatePosts';
 
 import {
   loginUser,
@@ -231,14 +232,14 @@ class App extends React.Component {
     this.props.history.push(`/posts/${id}`)
   }
 
-   deleteComment = async (id) => {
+  deleteComment = async (id) => {
     await deleteComment(id);
     this.setState(prevState => ({
       comments: prevState.comments.filter(comment => comment.id !== id)
     }))
     this.props.history.push(`/posts/${id}`)
-   }
-  
+  }
+
   getComments = async (postId) => {
     const comments = await getAllComments(postId);
     this.setState({
@@ -431,6 +432,14 @@ class App extends React.Component {
             editSubmit={this.editSubmit} />
         }} />
 
+
+        <Route path="/createpost" render={(props) => (
+          <CreatePosts
+            postForm={this.state.postForm}
+            handleFormChange={this.handleFormChange}
+            createSubmit={this.createSubmit}
+          />)} />
+
         {/* ==================ART =========================================== */}
 
         <Route path='/art' render={(props) => (
@@ -465,7 +474,6 @@ class App extends React.Component {
 
           />
         }} />
-
 
         <Route path='/users/:id/edit' render={(props) => {
           const userId = props.match.params.id

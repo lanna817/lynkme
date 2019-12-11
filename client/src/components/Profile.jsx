@@ -10,48 +10,38 @@ export default function Profile(props) {
   return (
     
   <div className='profile-pg'>
-       
+    <div className='profile-box'>
         {
-
+          
           currentUser && (
             
                   <>
                 <div className='pro-image'>
               {
                   currentUser.image_url ?
-                <img src={currentUser.image_url} width='70%' id='post-pic' alt='profile-images' /> :
-                <img src={'https://media.giphy.com/media/xTkcEQACH24SMPxIQg/source.gif'} width='40%' alt='hands tapping' /> }
-               <h3>{currentUser.username}</h3>
+                <img src={currentUser.image_url} width='50%' id='post-pic' alt='profile-images' /> :
+                <img src={'https://media.giphy.com/media/xTkcEQACH24SMPxIQg/source.gif'} width='60%' alt='hands tapping' /> }
             </div>
         
-                  <p>{currentUser.email}</p>
+               <h3 id='user-display'>{currentUser.username}</h3>
+                  <p id='user-email'>{currentUser.email}</p>
                 <p>{currentUser.description}</p>
             
-
-                <button id='delete-btn' onClick={() => {
+                <div className='edel-btn'>
+                <button id='deletepro-btn' onClick={() => {
               props.deleteUser(currentUser.id)
             }}>Delete</button>
-            <button id='edit-btn' onClick={() => {
+            <button id='editpro-btn' onClick={() => {
               props.setUserEdit(currentUser);
             }}>Edit</button>
-            
+            </div>
               </>
             
             
         )
             
-        }
-    
-
-        {/* <Route path='/users/:id/edit' render={(props) => {
-          const userId = props.match.params.id;
-          return <UserEdit
-          userId={userId}
-          userForm={this.state.userForm}
-          handleUserFormChange={this.handleUserFormChange}
-          editUserSubmit={this.editUserSubmit} 
-          />
-        }} /> */}
+      }
+      </div>
       
         </div>
     )

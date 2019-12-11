@@ -11,7 +11,7 @@ export default function ArtworkForm(props){
         <label htmlFor="content">Name:</label>
         <input
           name="content"
-          id="content"
+          id="art-content"
           value={props.artForm.content}
           onChange={props.handleFormArtChange}
         />
@@ -20,7 +20,7 @@ export default function ArtworkForm(props){
         <input
           type="text"
           name="image_url"
-          id="image_url"
+          id="art-image_url"
           value={props.artForm.image_url}
           onChange={props.handleFormArtChange}
         />
@@ -28,7 +28,7 @@ export default function ArtworkForm(props){
         <textarea
           type="text"
           name="hashtags"
-          id="hashtags"
+          id="art-hashtags"
           value={props.artForm.hashtags}
           onChange={props.handleFormArtChange}
         />
@@ -38,7 +38,7 @@ export default function ArtworkForm(props){
         <input
           type="text"
           name="category"
-          id="category"
+          id="art-category"
           value={props.artForm.category}
           onChange={props.handleFormArtChange }
         />

@@ -2,7 +2,7 @@ import React from 'react';
 import CreatePosts from './CreatePosts';
 import PostList from './PostList';
 import ArtPriceDisplay from './ArtPriceDisplay';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 
 export default function Art(props) {
@@ -107,36 +107,11 @@ export default function Art(props) {
         </div>
 
 
+        <ArtPriceDisplay
 
+          artworks={props.artworks}
 
-        {
-          props.artworks.map(artist => (
-            <div className='art-upload' key={artist.id}>
-              <div className='flip-card'>
-                <div className='flip-card-inner'>
-                  <div className='flip-img-front'>
-                    {
-                      artist.image_url ? <img src={artist.image_url} width='40%' alt='art or gig images' /> :
-                        <img src={'https://media.giphy.com/media/xTkcEQACH24SMPxIQg/source.gif'} width='30%' alt='hands tapping' />}
-                  </div>
-                  <div className='flip-black'>
-                    <p className='text-img'>{artist.content}</p>
-                    <p className='price-desc'>{artist.hashtags}</p>
-                    <h2>Price:{artist.category}</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          ))
-        }
-
-
-        {/* <ArtPriceDisplay
-            
-            artworks={props.artworks}
-            
-          /> */}
+        />
 
       </div>
 
@@ -144,29 +119,31 @@ export default function Art(props) {
 
 
       <Link to={'/artform'}>
-        <button id='add-artwork'>Add <span className='art-color'>Art</span>work</button>
+        <div className='btn-cont'>
+          <button id='add-artwork'>Add <span className='art-color'>Art</span>work</button>
+          </div>
       </Link>
-      <h3 id='connect'>Connect </h3>
-      <h3 className='head-title'>Post about Gigs or <span className='art-color'>Art</span> in your area...</h3>
-      <h3 id='late-post'>Latest Posts...</h3>
-      <div className='flex-post'>
+        <h3 id='connect'>Connect </h3>
+        <h3 className='head-title'>Post about Gigs or <span className='art-color'>Art</span> in your area...</h3>
+        <h3 id='late-post'>Latest Posts...</h3>
+        <div className='flex-post'>
+          <Link to={'/createpost'}>
+            <div className='btn-cont'>
+              <button id='add-postbtn'>Add Post</button>
+            </div>
+          </Link>
+
+          <PostList
+            posts={props.posts} />
 
 
 
-        <CreatePosts
-          postForm={props.postForm}
-          handleFormChange={props.handleFormChange}
-          createSubmit={props.createSubmit} />
-
-        <PostList
-          posts={props.posts} />
 
 
+        </div >
 
-      </div>
-
-    </div>
-  )
-}
-
-
+    </div >
+      )
+    }
+    
+    
