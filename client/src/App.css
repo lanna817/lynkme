@@ -327,7 +327,7 @@ p a:hover{
 .post-ind:hover{
   animation: pulse 1.15s infinite cubic-bezier(0.66, 0, 0, 1);
   transform: scale(1.1);
-  cursor: pointe
+  cursor: pointer;
 
 
 }
